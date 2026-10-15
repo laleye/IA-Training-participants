@@ -1,0 +1,2568 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Fondamentaux de l'IA vocale et des langues locales (fongbe, wolof) — cours pratique">
+      
+      
+        <meta name="author" content="Équipe pédagogique IA Training">
+      
+      
+        <link rel="canonical" href="https://laleye.github.io/IA-Training-participants/session1/cours/S1_cours/">
+      
+      
+        <link rel="prev" href="../../">
+      
+      
+        <link rel="next" href="../../notebooks/S1_NB01_premier_contact/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Panorama de l'IA vocale & phonétique des langues locales - IA Training — Module 1 : IA vocale & langues locales</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#panorama-de-lia-vocale--phonétique-des-langues-locales" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="IA Training — Module 1 : IA vocale &amp; langues locales" class="md-header__button md-logo" aria-label="IA Training — Module 1 : IA vocale & langues locales" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m22 12-2 1-1 1-1-1-1 3-1-3-1 8-1-8-1 2-1-2-1 4-1-4-1 9-1-9-1 6-1-6-1 1-1-1-2-1 2-1 1-1 1 1 1-6 1 6 1-9 1 9 1-4 1 4 1-2 1 2 1-8 1 8 1-3 1 3 1-1 1 1z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IA Training — Module 1 : IA vocale & langues locales
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Panorama de l'IA vocale & phonétique des langues locales
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Passer en mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer en mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Passer en mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer en mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/laleye/IA-Training-participants" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../demarrer/S0_verification_environnement/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Démarrer
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Session 1
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ressources/bibliographie/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Ressources
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IA Training — Module 1 : IA vocale &amp; langues locales" class="md-nav__button md-logo" aria-label="IA Training — Module 1 : IA vocale & langues locales" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m22 12-2 1-1 1-1-1-1 3-1-3-1 8-1-8-1 2-1-2-1 4-1-4-1 9-1-9-1 6-1-6-1 1-1-1-2-1 2-1 1-1 1 1 1-6 1 6 1-9 1 9 1-4 1 4 1-2 1 2 1-8 1 8 1-3 1 3 1-1 1 1z"/></svg>
+
+    </a>
+    IA Training — Module 1 : IA vocale & langues locales
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/laleye/IA-Training-participants" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Démarrer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Démarrer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demarrer/S0_verification_environnement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S0 — Vérification de l'environnement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demarrer/guide_installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide d'installation et de dépannage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demarrer/syllabus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus — Module 1 : Fondamentaux de l'IA vocale et des langues locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session 1
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Session 1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panorama de l'IA vocale & phonétique des langues locales
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panorama de l'IA vocale & phonétique des langues locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-dapprentissage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs d'apprentissage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prérequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ateliers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ateliers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/S1_NB01_premier_contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S1-NB01 — Premier contact : la machine écoute le fongbe et le wolof
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/S1_NB02_voir_ecrire_sons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S1-NB02 — Voir et écrire les sons : tons, durées, voyelles, Unicode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../td/TD1_enonce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TD1 — Canvas de cas d'usage & transcription en API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../td/canvas_cas_usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canvas de cas d'usage — IA vocale en langue locale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../tp/TP1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP1
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TP1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp/TP1/TP1_ma_voix_ma_langue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP1 — Ma voix, ma langue : contrôle et analyse de mes enregistrements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp/TP1/grille_TP1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grille d'évaluation — TP1 — Ma voix, ma langue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mémo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mémo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memo/memo_S1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fiche mémo S1 — IA vocale, langues locales & phonétique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ressources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ressources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/bibliographie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bibliographie commentée & ressources du Module 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/dataset_card_template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modèle : dataset card template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/donnees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kit de données du Module 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/enregistrement/formulaire_consentement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formulaire de consentement : enregistrement de voix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/enregistrement/protocole_enregistrement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocole d'enregistrement : fil rouge « Ma langue, de la voix au texte »
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/evaluation/grille_participation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grille d'évaluation — Participation aux ateliers et au mini-projet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/evaluation/modalites_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modalités d'évaluation du Module 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/glossaire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire bilingue FR/EN du Module 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/orthographes_fon_wol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orthographes du fongbe et du wolof : note de référence pour le traitement automatique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/registre_modeles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registre des modèles du Module 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-dapprentissage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs d'apprentissage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prérequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Session 1
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cours
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="panorama-de-lia-vocale--phonétique-des-langues-locales">Panorama de l'IA vocale &amp; phonétique des langues locales<a class="headerlink" href="#panorama-de-lia-vocale--phonétique-des-langues-locales" title="Permanent link">¶</a></h1>
+<blockquote>
+<p><strong>Module 1 — Session 1</strong> · Dr Fréjus A. A. Laleye · 15 octobre 2026.
+Ce support de cours <strong>complète</strong> les slides S1A et S1B. Il est autoportant : un participant absent peut suivre la session avec ce seul document et les notebooks.</p>
+</blockquote>
+<h2 id="objectifs-dapprentissage">Objectifs d'apprentissage<a class="headerlink" href="#objectifs-dapprentissage" title="Permanent link">¶</a></h2>
+<p>À la fin de cette session, vous êtes capable de :</p>
+<ol>
+<li><strong>Décrire</strong> la chaîne de traitement de la parole (reconnaissance, synthèse, traduction, identification de langue, diarisation) et situer l'état de l'art en 2026.</li>
+<li><strong>Expliquer</strong> ce qu'est une langue « peu dotée » et les défis spécifiques du fongbe et du wolof.</li>
+<li><strong>Lancer</strong> une inférence de reconnaissance (ASR) et de synthèse (TTS) avec un modèle pré-entraîné, et en <strong>interpréter</strong> les limites.</li>
+<li><strong>Transcrire</strong> des sons simples avec l'Alphabet phonétique international (API) et <strong>expliquer</strong> tons, nasalité, harmonie vocalique et longueur.</li>
+<li><strong>Visualiser</strong> le contour de F0 d'une paire minimale tonale et <strong>normaliser</strong> une transcription (Unicode).</li>
+</ol>
+<h2 id="prérequis">Prérequis<a class="headerlink" href="#prérequis" title="Permanent link">¶</a></h2>
+<p>Aucun en linguistique ni en traitement du signal. Python à l'aise pour les exercices 🔵 et 🔴.</p>
+<h2 id="plan">Plan<a class="headerlink" href="#plan" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Partie A — Panorama</strong></li>
+<li>La chaîne de la parole</li>
+<li>Soixante-dix ans de reconnaissance vocale</li>
+<li>L'état de l'art en 2026</li>
+<li>Les langues « peu dotées »</li>
+<li>Le fongbe et le wolof</li>
+<li>Cas d'usage et impact</li>
+<li>Le programme et le fil rouge</li>
+<li><strong>Partie B — Phonétique appliquée</strong></li>
+<li>Produire la parole : le modèle source-filtre</li>
+<li>Classer les sons : voyelles, consonnes, API</li>
+<li>Les tons</li>
+<li>Nasalité, harmonie vocalique, longueur, gémination</li>
+<li>De l'oral à l'écrit : orthographes et Unicode</li>
+<li>Ce que la phonétique implique pour l'ASR et la TTS</li>
+</ul>
+<hr />
+<h1 id="partie-a--panorama">Partie A — Panorama<a class="headerlink" href="#partie-a--panorama" title="Permanent link">¶</a></h1>
+<h2 id="1-la-chaîne-de-la-parole">1. La chaîne de la parole<a class="headerlink" href="#1-la-chaîne-de-la-parole" title="Permanent link">¶</a></h2>
+<p>L'« IA vocale » regroupe plusieurs tâches. Chacune transforme un type de donnée en un autre.</p>
+<table>
+<thead>
+<tr>
+<th>Tâche</th>
+<th>Entrée → sortie</th>
+<th>Nom anglais</th>
+<th>Exemple d'usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reconnaissance automatique de la parole</td>
+<td>audio → texte</td>
+<td><em>Automatic Speech Recognition</em>, ASR (ou <em>speech-to-text</em>)</td>
+<td>Sous-titrer une émission radio en wolof</td>
+</tr>
+<tr>
+<td>Synthèse vocale</td>
+<td>texte → audio</td>
+<td><em>Text-to-Speech</em>, TTS</td>
+<td>Lire un SMS d'alerte météo en fongbe</td>
+</tr>
+<tr>
+<td>Traduction de la parole</td>
+<td>audio (langue A) → texte ou audio (langue B)</td>
+<td><em>Speech Translation</em>, S2TT / S2ST</td>
+<td>Traduire une consultation fongbe → français</td>
+</tr>
+<tr>
+<td>Identification de la langue</td>
+<td>audio → code de langue</td>
+<td><em>Language Identification</em>, LID</td>
+<td>Router un appel vers le bon modèle</td>
+</tr>
+<tr>
+<td>Diarisation</td>
+<td>audio → « qui parle quand »</td>
+<td><em>Speaker Diarization</em></td>
+<td>Séparer les intervenants d'un débat</td>
+</tr>
+<tr>
+<td>Détection de mots-clés</td>
+<td>audio → présence d'un mot</td>
+<td><em>Keyword Spotting</em>, KWS</td>
+<td>Repérer « malaria » dans des appels</td>
+</tr>
+<tr>
+<td>Compréhension</td>
+<td>texte (issu de l'ASR) → intention, réponse</td>
+<td>NLU, LLM</td>
+<td>Assistant agricole qui répond à une question</td>
+</tr>
+</tbody>
+</table>
+<p>Un <strong>assistant vocal</strong> enchaîne plusieurs de ces briques :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a> 🎙️ micro → [VAD : y a-t-il de la parole ?] → [LID : quelle langue ?] → [ASR : quels mots ?]
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>        → [NLU / LLM : que veut l'utilisateur ? que répondre ?] → [TTS : dire la réponse] → 🔊
+</code></pre></div>
+<p>Chaque brique ajoute ses erreurs : une ASR à 30 % d'erreurs sur les mots peut rendre la compréhension impossible. C'est pourquoi le Module 1 se concentre sur les fondations, signal, ASR et données, avant les applications du Module 2.</p>
+<div class="admonition tip">
+<p class="admonition-title">En pratique</p>
+<p>Dans l'atelier 1A (notebook <a href="../../notebooks/S1_NB01_premier_contact/"><code>S1_NB01_premier_contact</code></a>), vous enchaînez ASR, LID et TTS en quelques lignes de Python.</p>
+</div>
+<h2 id="2-soixante-dix-ans-de-reconnaissance-vocale">2. Soixante-dix ans de reconnaissance vocale<a class="headerlink" href="#2-soixante-dix-ans-de-reconnaissance-vocale" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Époque</th>
+<th>Approche</th>
+<th>Idée clé</th>
+<th>Limite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1950–1970</td>
+<td>Gabarits (<em>templates</em>), comparaison dynamique (DTW)</td>
+<td>Comparer l'audio à des exemples enregistrés de chaque mot</td>
+<td>Quelques dizaines de mots, un seul locuteur</td>
+</tr>
+<tr>
+<td>1980–2010</td>
+<td>Modèles de Markov cachés + mélanges de gaussiennes (HMM-GMM)</td>
+<td>Modèle statistique des sons, lexique de prononciation, modèle de langue n-gramme</td>
+<td>Beaucoup d'expertise : phonéticiens, lexiques</td>
+</tr>
+<tr>
+<td>2010–2016</td>
+<td>Hybrides HMM-DNN</td>
+<td>Un réseau de neurones remplace les gaussiennes</td>
+<td>Toujours un pipeline complexe</td>
+</tr>
+<tr>
+<td>2014–2020</td>
+<td>Bout en bout (<em>end-to-end</em>) : CTC, attention, RNN-T</td>
+<td>Un seul réseau apprend directement audio → caractères</td>
+<td>Besoin de milliers d'heures <strong>transcrites</strong></td>
+</tr>
+<tr>
+<td>2019–</td>
+<td>Auto-supervisé et modèles de fondation : wav2vec 2.0, HuBERT, Whisper, MMS</td>
+<td>Pré-entraîner sur de l'audio <strong>non transcrit</strong>, puis affiner avec peu de données</td>
+<td>Couverture linguistique inégale, coût de calcul</td>
+</tr>
+<tr>
+<td>2024–</td>
+<td>Massivement multilingue et spécialisé : Simba, Omnilingual ASR, LLM audio</td>
+<td>Des centaines ou milliers de langues ; fusion avec les grands modèles de langage</td>
+<td>Qualité très variable selon la langue et le domaine</td>
+</tr>
+</tbody>
+</table>
+<p>Le tournant décisif pour les langues peu dotées est l'<strong>apprentissage auto-supervisé</strong>. Un modèle comme wav2vec 2.0 apprend d'abord la structure des sons à partir d'heures d'audio <strong>sans transcription</strong>, comme un enfant qui écoute avant de parler. Quelques heures de données transcrites suffisent ensuite pour l'<strong>affiner</strong> (<em>fine-tuning</em>). Avant, il en fallait des milliers. Ce mécanisme est détaillé en session 3 ; le fine-tuning est l'objet du Module 2.</p>
+<h2 id="3-létat-de-lart-en-2026">3. L'état de l'art en 2026<a class="headerlink" href="#3-létat-de-lart-en-2026" title="Permanent link">¶</a></h2>
+<p>Trois familles de modèles cohabitent. Vous les manipulez toutes dans l'atelier 1A.</p>
+<ol>
+<li><strong>Les généralistes multilingues</strong>, dont <strong>Whisper</strong> (OpenAI, 2022). Entraîné sur 680 000 heures d'audio collecté sur le web, il reconnaît une centaine de langues avec une excellente qualité sur les langues bien dotées (anglais, français…) [Radford et al., 2022]. <strong>Ni le fongbe ni le wolof</strong> ne font partie de ses langues.</li>
+<li><strong>Les massivement multilingues</strong>, dont <strong>MMS</strong> (Meta, 2023). Il couvre plus de 1 100 langues en ASR et TTS, grâce à des enregistrements de textes religieux lus dans de très nombreuses langues [Pratap et al., 2023]. Un petit <strong>adaptateur</strong> spécialise le modèle pour chaque langue. Fin 2025, <strong>Omnilingual ASR</strong> (Meta) couvre plus de 1 600 langues, dont le fongbe et le wolof [Omnilingual ASR team, 2025].</li>
+<li><strong>Les spécialisés régionaux</strong>, dont <strong>Simba</strong> (Université de Colombie-Britannique, EMNLP 2025). Cette famille de modèles est affinée sur SimbaBench, un regroupement de corpus de 43 langues africaines, dont le fongbe et le wolof [Elmadany et al., 2025].</li>
+</ol>
+<p>Sur notre jeu de test commun (session 3), les écarts sont spectaculaires :</p>
+<table>
+<thead>
+<tr>
+<th>Modèle</th>
+<th>Taille</th>
+<th>Fongbe lu (taux d'erreur sur les mots, WER)</th>
+<th>Wolof lu (WER)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Whisper-small</td>
+<td>242 M de paramètres</td>
+<td>2,59 (&gt; 100 % : hallucinations)</td>
+<td>2,42</td>
+</tr>
+<tr>
+<td>MMS-1b-all</td>
+<td>965 M</td>
+<td>0,82 (0,41 si l'on ignore les tons)</td>
+<td>0,42</td>
+</tr>
+<tr>
+<td>Simba-H</td>
+<td>94 M</td>
+<td>0,27</td>
+<td>0,48</td>
+</tr>
+</tbody>
+</table>
+<p><em>Mesures du cours, 20 énoncés par langue : à interpréter avec prudence vu la petite taille de l'échantillon. Détail dans <a href="../../../ressources/registre_modeles/">Registre des modèles du Module 1</a>.</em></p>
+<p>Trois leçons à retenir dès maintenant :</p>
+<ul>
+<li><strong>La taille ne remplace pas la couverture.</strong> Un modèle énorme qui n'a jamais entendu une langue l'« entend » comme une langue voisine qu'il connaît. Il prend par exemple le fongbe pour du yoruba, puis invente un texte plausible dans cette langue : c'est une <strong>hallucination</strong>.</li>
+<li><strong>La spécialisation paie.</strong> Un petit modèle entraîné sur des données africaines bat des modèles dix fois plus gros.</li>
+<li><strong>Aucun modèle n'est « fini ».</strong> Même les meilleurs se trompent sur un mot sur quatre ou cinq, et beaucoup plus sur la parole spontanée.</li>
+</ul>
+<p><strong>Et la synthèse vocale ?</strong> Les modèles neuronaux produisent des voix très naturelles pour les langues bien dotées. Pour le fongbe, MMS-TTS existe. Pour le wolof, des modèles communautaires existent, comme SpeechT5-wolof. Les questions de la <strong>qualité des tons</strong> et du <strong>consentement</strong> des voix (clonage, deepfakes) restent entières.</p>
+<h2 id="4-les-langues--peu-dotées-">4. Les langues « peu dotées »<a class="headerlink" href="#4-les-langues--peu-dotées-" title="Permanent link">¶</a></h2>
+<p>On qualifie une langue de <strong>peu dotée</strong> (<em>low-resource</em>) quand elle manque de <strong>ressources numériques</strong> pour construire des technologies. Ce n'est pas une question de nombre de locuteurs : une langue parlée par des millions de personnes peut être très peu dotée. Les critères sont multiples :</p>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Langue bien dotée (français)</th>
+<th>Langue peu dotée (fongbe)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heures de parole transcrite disponibles</td>
+<td>des dizaines de milliers</td>
+<td>quelques dizaines</td>
+</tr>
+<tr>
+<td>Textes numériques (web, livres, presse)</td>
+<td>des milliards de mots</td>
+<td>très peu, souvent sans tons</td>
+</tr>
+<tr>
+<td>Orthographe standardisée et utilisée</td>
+<td>oui</td>
+<td>officielle, mais peu pratiquée à l'écrit</td>
+</tr>
+<tr>
+<td>Outils (correcteurs, claviers, dictionnaires numériques)</td>
+<td>nombreux</td>
+<td>rares</td>
+</tr>
+<tr>
+<td>Présence dans les grands modèles</td>
+<td>systématique</td>
+<td>rare ou absente</td>
+</tr>
+<tr>
+<td>Chercheurs, financements</td>
+<td>nombreux</td>
+<td>rares</td>
+</tr>
+</tbody>
+</table>
+<p>L'Afrique compte plus de 2 000 langues <code>[À VÉRIFIER : chiffre Ethnologue]</code>, dont la grande majorité est peu ou pas dotée. Or la parole est souvent le <strong>premier canal</strong> d'accès à l'information pour des populations dont une partie n'est pas alphabétisée en français ou en anglais. L'IA vocale dans les langues locales est donc un enjeu d'<strong>inclusion</strong>. Sans elle, les services numériques (santé, banque mobile, administration) restent réservés aux personnes qui parlent et lisent une langue dominante.</p>
+<p>Des initiatives structurent le domaine :</p>
+<ul>
+<li><strong>Masakhane</strong> : communauté de recherche en traitement des langues africaines.</li>
+<li><strong>Lacuna Fund</strong> : financement de jeux de données, dont le corpus wolof Kallaama.</li>
+<li><strong>ALFFA</strong> : un projet franco-africain qui a produit les premiers corpus ASR publics pour le fongbe et le wolof.</li>
+<li><strong>SimbaBench</strong> : un banc d'essai qui regroupe les corpus africains existants.</li>
+</ul>
+<h2 id="5-le-fongbe-et-le-wolof">5. Le fongbe et le wolof<a class="headerlink" href="#5-le-fongbe-et-le-wolof" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Fongbe (<code>fon</code>)</th>
+<th>Wolof (<code>wol</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Famille</td>
+<td>Niger-Congo, kwa, groupe gbe</td>
+<td>Niger-Congo, atlantique</td>
+</tr>
+<tr>
+<td>Pays</td>
+<td>Bénin (sud), Togo</td>
+<td>Sénégal, Gambie, Mauritanie</td>
+</tr>
+<tr>
+<td>Statut</td>
+<td>Langue nationale, la plus parlée du Bénin <code>[À VÉRIFIER]</code></td>
+<td>Langue nationale, véhiculaire au Sénégal</td>
+</tr>
+<tr>
+<td>Locuteurs</td>
+<td>plusieurs millions <code>[À VÉRIFIER : chiffre sourcé]</code></td>
+<td>langue première ou seconde d'une large majorité des Sénégalais <code>[À VÉRIFIER]</code></td>
+</tr>
+<tr>
+<td>Tons</td>
+<td><strong>oui</strong> : haut, bas, contours</td>
+<td><strong>non</strong></td>
+</tr>
+<tr>
+<td>Traits marquants</td>
+<td>voyelles nasales, labio-vélaires <em>kp</em>, <em>gb</em>, lettres ɛ, ɔ, ɖ</td>
+<td>longueur vocalique, gémination, prénasalisées, harmonie vocalique, lettres ë, ñ, ŋ</td>
+</tr>
+<tr>
+<td>Écrit</td>
+<td>alphabet national béninois, tons rarement écrits</td>
+<td>orthographe officielle, concurrencée par une graphie francisée</td>
+</tr>
+<tr>
+<td>Code-switching</td>
+<td>fréquent avec le français</td>
+<td>très fréquent avec le français, surtout en ville</td>
+</tr>
+<tr>
+<td>Corpus ASR ouverts</td>
+<td>ALFFA (≈ 10 h de parole lue) <code>[À VÉRIFIER]</code>, données de SimbaBench</td>
+<td>ALFFA (≈ 20 h lues) <code>[À VÉRIFIER]</code>, Kallaama (parole spontanée agricole), FLEURS</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition linguistes">
+<p class="admonition-title">Pour les linguistes</p>
+<p>La notion de « langue » est elle-même un choix : il existe des variétés régionales du fongbe et du wolof (wolof urbain de Dakar, wolof de Saint-Louis…). Un corpus doit <strong>documenter</strong> la variété enregistrée (session 4).</p>
+</div>
+<h2 id="6-cas-dusage-et-impact">6. Cas d'usage et impact<a class="headerlink" href="#6-cas-dusage-et-impact" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Secteur</th>
+<th>Exemple</th>
+<th>Tâches</th>
+<th>Coût d'une erreur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Santé</td>
+<td>Rappel vocal de traitement en fongbe, prise de notes de consultation</td>
+<td>TTS, ASR</td>
+<td>Élevé : dosage mal compris</td>
+</tr>
+<tr>
+<td>Agriculture</td>
+<td>Prix du marché et météo par serveur vocal (IVR) en wolof</td>
+<td>TTS, ASR, KWS</td>
+<td>Moyen</td>
+</tr>
+<tr>
+<td>Éducation</td>
+<td>Lecture assistée, alphabétisation en langue maternelle</td>
+<td>ASR, TTS</td>
+<td>Moyen</td>
+</tr>
+<tr>
+<td>Finance mobile</td>
+<td>Transfert d'argent par commande vocale</td>
+<td>ASR, LID, vérification du locuteur</td>
+<td>Élevé : fraude</td>
+</tr>
+<tr>
+<td>Administration</td>
+<td>Information sur l'état civil, démarches</td>
+<td>ASR, TTS, traduction</td>
+<td>Moyen</td>
+</tr>
+<tr>
+<td>Accessibilité</td>
+<td>Lecture d'écran pour personnes malvoyantes</td>
+<td>TTS</td>
+<td>Moyen</td>
+</tr>
+<tr>
+<td>Médias</td>
+<td>Sous-titrage et archivage de radios locales</td>
+<td>ASR, diarisation</td>
+<td>Faible à moyen</td>
+</tr>
+</tbody>
+</table>
+<p>Les conditions de succès sont rarement techniques seules :</p>
+<ul>
+<li>connaître les <strong>utilisateurs</strong> et leur <strong>canal</strong> : téléphone basique à 8 kHz, smartphone, connexion intermittente ;</li>
+<li>définir le <strong>niveau de qualité nécessaire</strong>, qui dépend du coût d'une erreur ;</li>
+<li>disposer de <strong>données représentatives</strong> du terrain ;</li>
+<li>traiter dès le départ l'<strong>éthique</strong> : consentement, vie privée, risque d'exclusion de certaines variétés ou de certains groupes.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">En pratique</p>
+<p>Le TD1 (canvas de cas d'usage) vous fait cadrer un projet réaliste sur ces dimensions. Votre canvas resservira en S3 (choix du modèle) et en S4 (mini-projet).</p>
+</div>
+<h2 id="7-le-programme-et-le-fil-rouge">7. Le programme et le fil rouge<a class="headerlink" href="#7-le-programme-et-le-fil-rouge" title="Permanent link">¶</a></h2>
+<p>Le programme compte quatre modules :</p>
+<ol>
+<li><strong>Module 1 (ce module) : les fondations.</strong> Signal, phonétique, architectures ASR et TTS, données.</li>
+<li><strong>Module 2 : adapter et évaluer.</strong> Fine-tuning de Whisper sur le fongbe ou le wolof, WER et CER, applications sectorielles.</li>
+<li><strong>Module 3 : déployer.</strong> API, optimisation, conteneurs, MLOps, monitoring.</li>
+<li><strong>Module 4 : concevoir des solutions complètes.</strong> Open source, agents, puis hackathon de clôture à Cotonou.</li>
+</ol>
+<p>Le <strong>fil rouge</strong> du module s'intitule « Ma langue, de la voix au texte ». Vous <strong>enregistrez</strong> votre langue (TP1), <strong>nettoyez</strong> vos enregistrements (TP2), les <strong>transcrivez</strong> automatiquement (TP3), puis les <strong>publiez</strong> comme un corpus documenté et les passez dans un <strong>pipeline de bout en bout</strong> (TP4). Ce corpus et la fiche de cadrage du TP4 sont le point de départ du Module 2.</p>
+<hr />
+<h1 id="partie-b--phonétique-appliquée">Partie B — Phonétique appliquée<a class="headerlink" href="#partie-b--phonétique-appliquée" title="Permanent link">¶</a></h1>
+<h2 id="8-produire-la-parole--le-modèle-source-filtre">8. Produire la parole : le modèle source-filtre<a class="headerlink" href="#8-produire-la-parole--le-modèle-source-filtre" title="Permanent link">¶</a></h2>
+<p>Pour comprendre ce que « voit » un modèle dans un signal de parole, il faut savoir comment la parole est produite. Le <strong>modèle source-filtre</strong> la décompose en deux étages, comme un instrument de musique :</p>
+<ul>
+<li><strong>La source.</strong> Les cordes vocales, dans le larynx, vibrent quand l'air des poumons les traverse. C'est la « corde » de l'instrument. Leur vitesse de vibration est la <strong>fréquence fondamentale (F0)</strong>, perçue comme la <strong>hauteur</strong> de la voix. Elle se situe typiquement entre 80 et 180 Hz pour une voix d'homme et entre 160 et 300 Hz pour une voix de femme. Quand les cordes vocales ne vibrent pas, la source est un <strong>bruit</strong> de friction (<em>s</em>, <em>f</em>, <em>x</em>).</li>
+<li><strong>Le filtre.</strong> Le conduit vocal (gorge, bouche, nez) est la « caisse de résonance ». Sa forme dépend de la position de la langue, des lèvres, de la mâchoire et du voile du palais. Elle renforce certaines fréquences, appelées les <strong>formants</strong> (F1, F2, F3…), qui caractérisent les voyelles.</li>
+</ul>
+<p>Conséquence capitale :</p>
+<ul>
+<li>La <strong>F0 porte la mélodie</strong>, donc les <strong>tons</strong> et l'intonation.</li>
+<li>Les <strong>formants</strong> portent l'<strong>identité des sons</strong>, donc les voyelles.</li>
+</ul>
+<p>On peut changer de ton sans changer de voyelle, et inversement. En session 2, vous verrez la F0 et les formants dans un <strong>spectrogramme</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">En pratique</p>
+<p>La partie 1 du notebook <code>S1_NB02</code> affiche la F0 sur le spectrogramme d'une phrase fongbe réelle. La partie 4 place les voyelles dans le plan F1/F2.</p>
+</div>
+<h2 id="9-classer-les-sons--voyelles-consonnes-et-api">9. Classer les sons : voyelles, consonnes et API<a class="headerlink" href="#9-classer-les-sons--voyelles-consonnes-et-api" title="Permanent link">¶</a></h2>
+<p>Un <strong>phonème</strong> est la plus petite unité sonore qui distingue des mots dans une langue. Deux mots qui ne diffèrent que par un phonème forment une <strong>paire minimale</strong>. En français, <em>pain</em> et <em>bain</em> diffèrent par /p/ et /b/.</p>
+<p><strong>Voyelles.</strong> On les classe selon trois critères :</p>
+<ul>
+<li>l'<strong>aperture</strong>, c'est-à-dire l'ouverture de la bouche : fermée /i u/, mi-fermée /e o/, mi-ouverte /ɛ ɔ/, ouverte /a/. L'aperture correspond à peu près à <strong>F1</strong> ;</li>
+<li>l'<strong>antériorité</strong>, c'est-à-dire la position de la langue : antérieure /i e ɛ/, postérieure /u o ɔ/. Elle correspond à peu près à <strong>F2</strong> ;</li>
+<li>l'<strong>arrondissement</strong> des lèvres et la <strong>nasalité</strong> (l'air passe par le nez).</li>
+</ul>
+<p><strong>Consonnes.</strong> On les classe selon trois critères :</p>
+<ul>
+<li>le <strong>lieu</strong> d'articulation : lèvres, dents, palais, voile du palais ;</li>
+<li>le <strong>mode</strong> : occlusive (fermeture complète puis relâchement : <em>p t k b d g</em>), fricative (<em>f s x</em>), nasale (<em>m n ɲ ŋ</em>), liquide (<em>l r</em>) ;</li>
+<li>le <strong>voisement</strong> : avec ou sans vibration des cordes vocales, comme <em>b</em> et <em>p</em>.</li>
+</ul>
+<p>L'<strong>Alphabet phonétique international (API)</strong> (<em>International Phonetic Alphabet</em>, IPA) attribue <strong>un symbole à chaque son</strong>, indépendamment de l'orthographe d'une langue. On note les phonèmes entre barres obliques, /…/. Symboles utiles pour le module :</p>
+<table>
+<thead>
+<tr>
+<th>Symbole API</th>
+<th>Description</th>
+<th>Exemple</th>
+<th>Lettre en orthographe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/ɛ/</td>
+<td>voyelle mi-ouverte antérieure</td>
+<td>fongbe <em>akwɛ</em></td>
+<td>ɛ (fon), è / e (wol)</td>
+</tr>
+<tr>
+<td>/ɔ/</td>
+<td>voyelle mi-ouverte postérieure</td>
+<td>fongbe <em>xɔ</em></td>
+<td>ɔ (fon), o (wol)</td>
+</tr>
+<tr>
+<td>/ə/</td>
+<td>voyelle centrale (schwa)</td>
+<td>wolof <em>bët</em></td>
+<td>ë (wol)</td>
+</tr>
+<tr>
+<td>/ɖ/</td>
+<td>occlusive rétroflexe ou apicale</td>
+<td>fongbe <em>ɖe</em></td>
+<td>ɖ</td>
+</tr>
+<tr>
+<td>/k͡p/, /ɡ͡b/</td>
+<td>occlusives <strong>labio-vélaires</strong> : lèvres et arrière de la langue fermées en même temps</td>
+<td>fongbe <em>kpɔ́n</em>, <em>gbè</em></td>
+<td>kp, gb</td>
+</tr>
+<tr>
+<td>/x/</td>
+<td>fricative vélaire (comme la <em>jota</em> espagnole)</td>
+<td>wolof <em>xam</em></td>
+<td>x</td>
+</tr>
+<tr>
+<td>/ɲ/</td>
+<td>nasale palatale</td>
+<td>wolof <em>ñaar</em></td>
+<td>ñ (wol), ny (fon)</td>
+</tr>
+<tr>
+<td>/ŋ/</td>
+<td>nasale vélaire</td>
+<td>wolof <em>ŋ</em></td>
+<td>ŋ</td>
+</tr>
+<tr>
+<td>/ᵐb/, /ⁿd/</td>
+<td>consonnes <strong>prénasalisées</strong></td>
+<td>wolof <em>mbaam</em>, <em>ndox</em></td>
+<td>mb, nd</td>
+</tr>
+<tr>
+<td>/ː/</td>
+<td>marque de longueur</td>
+<td>wolof <em>feen</em> /feːn/</td>
+<td>voyelle doublée</td>
+</tr>
+</tbody>
+</table>
+<p><em>Exemples à faire valider par des locuteurs natifs [RELECTURE LINGUISTIQUE].</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>L'orthographe n'est pas l'API. Le <em>x</em> wolof se prononce /x/, alors que le <em>x</em> français se prononce /ks/. Le <em>c</em> wolof se prononce /c/, une occlusive palatale proche de « tch ».</p>
+</div>
+<h2 id="10-les-tons">10. Les tons<a class="headerlink" href="#10-les-tons" title="Permanent link">¶</a></h2>
+<p>Dans une <strong>langue à tons</strong>, la hauteur mélodique d'une syllabe fait partie du mot, au même titre que ses consonnes et voyelles. Changer le ton peut changer le sens. Plus de la moitié des langues africaines seraient tonales <code>[À VÉRIFIER]</code>. C'est le cas du fongbe, du yoruba et de l'éwé. Le wolof, lui, ne l'est pas.</p>
+<ul>
+<li><strong>Tons de registre</strong> : niveaux de hauteur, comme haut (H) et bas (B).</li>
+<li><strong>Tons modulés</strong> ou <strong>contours</strong> : mouvement de hauteur à l'intérieur d'une syllabe, montant (BH) ou descendant (HB).</li>
+<li><strong>Ton lexical</strong> : il distingue des mots, comme dans les paires minimales tonales.</li>
+<li><strong>Ton grammatical</strong> : il marque une fonction grammaticale, par exemple le temps ou l'aspect.</li>
+</ul>
+<p>En fongbe, on écrit les tons avec des diacritiques : aigu (haut, <em>á</em>), grave (bas, <em>à</em>), caron (montant, <em>ǎ</em>) et circonflexe (descendant, <em>â</em>). Paires candidates du corpus d'enregistrement : <em>tó / tò</em>, <em>xɔ́ / xɔ̀</em> <code>[RELECTURE LINGUISTIQUE]</code>.</p>
+<p><strong>Ce qui compte, c'est la hauteur relative.</strong> Un ton haut d'homme peut être plus grave qu'un ton bas de femme. Pour comparer des locuteurs, on exprime la F0 en <strong>demi-tons</strong> par rapport à la hauteur moyenne du locuteur : 12 demi-tons font une octave. D'autres phénomènes compliquent la mesure :</p>
+<ul>
+<li>la <strong>déclinaison</strong> : la F0 baisse naturellement au fil d'une phrase ;</li>
+<li>la <strong>coarticulation tonale</strong> : un ton est influencé par ses voisins ;</li>
+<li>l'<strong>intonation</strong> de phrase, comme une question ou une emphase, qui se superpose aux tons lexicaux.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">En pratique</p>
+<p>Dans <code>S1_NB02</code> (partie 2), vous comparez les contours de F0 de paires minimales et constatez qu'un modèle de <strong>synthèse</strong> ne réalise pas toujours les tons écrits. Au TP1, vous mesurez <strong>vos propres</strong> paires minimales.</p>
+</div>
+<h2 id="11-nasalité-harmonie-vocalique-longueur-gémination">11. Nasalité, harmonie vocalique, longueur, gémination<a class="headerlink" href="#11-nasalité-harmonie-vocalique-longueur-gémination" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Nasalité (fongbe).</strong> Les voyelles nasales s'écrivent avec un <em>n</em> final, comme <em>an</em>, <em>ɛn</em> ou <em>ɔn</em>. Le voile du palais s'abaisse et l'air passe aussi par le nez. Les voyelles orales et nasales forment des paires minimales.</li>
+<li><strong>Harmonie vocalique (wolof).</strong> Les voyelles d'un mot tendent à appartenir à la même série : « avancées » (<em>Advanced Tongue Root</em>, ATR, comme é, ë, ó, i, u) ou non (è, a, o…). Cela conditionne la forme des suffixes.</li>
+<li><strong>Longueur vocalique (wolof).</strong> Une voyelle longue s'écrit doublée et distingue des mots : <em>fen</em> « mentir » et <em>feen</em> « apparaître ».</li>
+<li><strong>Gémination (wolof).</strong> Une consonne longue s'écrit doublée : <em>bët</em> « œil » et <em>bëtt</em> « percer ».</li>
+<li><strong>Prénasalisées (wolof).</strong> <em>mb</em>, <em>nd</em>, <em>ng</em> et <em>nj</em> forment un seul son en début de mot : <em>ndox</em> « eau ».</li>
+</ul>
+<p>Ces contrastes de <strong>durée</strong> sont subtils pour une machine. À 20 ms par trame, un modèle CTC doit distinguer une voyelle de 80 ms d'une voyelle de 150 ms.</p>
+<h2 id="12-de-loral-à-lécrit--orthographes-et-unicode">12. De l'oral à l'écrit : orthographes et Unicode<a class="headerlink" href="#12-de-loral-à-lécrit--orthographes-et-unicode" title="Permanent link">¶</a></h2>
+<p><strong>Transcription orthographique</strong> et <strong>transcription phonétique</strong> sont deux choses distinctes. Les corpus ASR utilisent l'<strong>orthographe</strong>, parce que l'utilisateur final veut un texte lisible. Mais l'orthographe varie dans les données réelles :</p>
+<ul>
+<li>les tons sont absents dans la plupart des textes fongbe ;</li>
+<li>les claviers ne proposent pas ɛ, ɔ, ɖ ;</li>
+<li>les graphies francisées sont fréquentes (<em>Ndiaye</em>, <em>Thiès</em>) ;</li>
+<li>le français s'insère dans les phrases (code-switching).</li>
+</ul>
+<p>Les règles de référence du cours sont dans <a href="../../../ressources/orthographes_fon_wol/">Orthographes du fongbe et du wolof : note de référence pour le traitement automatique</a>.</p>
+<p><strong>Unicode.</strong> Chaque caractère a un numéro, son <strong>point de code</strong> (U+XXXX). Deux pièges rendent différents des textes identiques à l'écran :</p>
+<ol>
+<li><strong>Formes composée et décomposée.</strong> <em>é</em> peut être un caractère (U+00E9) ou deux, <em>e</em> + accent combinant (U+0065 U+0301). La normalisation <strong>NFC</strong> choisit la forme composée quand elle existe.</li>
+<li><strong>Homoglyphes.</strong> Ce sont des caractères d'autres écritures qui se ressemblent. Le corpus ALFFA fongbe, par exemple, écrit <em>akwε</em> avec un <strong>epsilon grec</strong> (U+03B5) au lieu du <strong>ɛ latin</strong> (U+025B). Pour la machine, ce sont deux lettres différentes.</li>
+</ol>
+<div class="admonition developpeurs">
+<p class="admonition-title">Pour les développeurs</p>
+<p><code>unicodedata.normalize("NFC", s)</code> ne corrige <strong>pas</strong> les homoglyphes : ε grec et ɛ latin sont des lettres distinctes, même en NFC. <code>m1utils.text.normalize_text</code> applique NFC <strong>puis</strong> une table d'homoglyphes. Écrivez toujours la normalisation de votre projet dans une fonction unique, testée et versionnée.</p>
+</div>
+<h2 id="13-ce-que-la-phonétique-implique-pour-lasr-et-la-tts">13. Ce que la phonétique implique pour l'ASR et la TTS<a class="headerlink" href="#13-ce-que-la-phonétique-implique-pour-lasr-et-la-tts" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Phénomène</th>
+<th>Conséquence pour l'ASR</th>
+<th>Conséquence pour la TTS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tons (fon)</td>
+<td>Le modèle doit percevoir la F0 relative. Si la référence n'écrit pas les tons et que le modèle les écrit, le WER explose (0,82 → 0,41 pour MMS)</td>
+<td>Sans tons écrits, la mélodie est devinée, parfois fausse, ce qui peut changer le sens</td>
+</tr>
+<tr>
+<td>Longueur et gémination (wol)</td>
+<td>Confusions <em>fen/feen</em>, mots collés ou coupés</td>
+<td>Durées à respecter</td>
+</tr>
+<tr>
+<td>Lettres spéciales (ɛ, ɔ, ɖ, ë, ñ)</td>
+<td>Elles doivent être dans le <strong>vocabulaire de sortie</strong> du modèle : un modèle sans ɖ ne peut pas l'écrire</td>
+<td>Le texte d'entrée doit utiliser les mêmes caractères qu'à l'entraînement</td>
+</tr>
+<tr>
+<td>Homoglyphes, NFC/NFD</td>
+<td>Fausses erreurs dans le WER et le CER, vocabulaires dupliqués</td>
+<td>Caractères inconnus ignorés ou mal lus</td>
+</tr>
+<tr>
+<td>Code-switching</td>
+<td>Le modèle doit gérer deux langues dans la même phrase</td>
+<td>Prononciation des mots français</td>
+</tr>
+<tr>
+<td>Variation orthographique</td>
+<td>La référence elle-même est incertaine : il faut fixer une <strong>convention</strong></td>
+<td>Normaliser le texte avant de synthétiser</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">À retenir</p>
+<p>Un taux d'erreur n'a de sens qu'avec la <strong>convention d'écriture</strong> qui l'accompagne. Normaliser, c'est faire un choix, et ce choix doit être documenté.</p>
+</div>
+<hr />
+<h2 id="résumé">Résumé<a class="headerlink" href="#résumé" title="Permanent link">¶</a></h2>
+<ul>
+<li>L'IA vocale regroupe des briques (ASR, TTS, LID, traduction, diarisation) qu'on assemble en applications. Chaque brique ajoute ses erreurs.</li>
+<li>L'apprentissage auto-supervisé, puis les modèles massivement multilingues, ont ouvert la porte aux langues peu dotées.</li>
+<li>Un modèle généraliste ne couvre pas les langues absentes de ses données : il <strong>hallucine</strong>. Les modèles spécialisés (Simba) ou adaptés (fine-tuning, Module 2) font beaucoup mieux.</li>
+<li>« Peu doté » se mesure en ressources numériques, pas en nombre de locuteurs.</li>
+<li>Le fongbe est tonal, avec des lettres spécifiques (ɛ, ɔ, ɖ) et des labio-vélaires. Le wolof n'est pas tonal mais distingue les durées (voyelles longues, géminées) et pratique l'harmonie vocalique.</li>
+<li>La F0 porte les tons, les formants portent les voyelles : c'est le modèle source-filtre.</li>
+<li>À l'écrit, NFC et la correction des homoglyphes sont indispensables avant toute comparaison automatique.</li>
+</ul>
+<h2 id="auto-évaluation">Auto-évaluation<a class="headerlink" href="#auto-évaluation" title="Permanent link">¶</a></h2>
+<ol>
+<li>Citez trois tâches d'IA vocale et un cas d'usage pour chacune.</li>
+<li>Pourquoi Whisper prend-il le fongbe pour du yoruba ? Que produit-il alors ?</li>
+<li>Donnez deux critères qui font qu'une langue est « peu dotée ».</li>
+<li>Quelle grandeur acoustique porte les tons ? Laquelle porte l'identité des voyelles ?</li>
+<li>Pourquoi « akwε » et « akwɛ » sont-ils différents pour un programme, alors qu'ils sont identiques à l'écran ?</li>
+</ol>
+<h2 id="références">Références<a class="headerlink" href="#références" title="Permanent link">¶</a></h2>
+<ul>
+<li>Radford, A. et al. (2022). <em>Robust Speech Recognition via Large-Scale Weak Supervision</em>. arXiv:2212.04356.</li>
+<li>Pratap, V. et al. (2023). <em>Scaling Speech Technology to 1,000+ Languages</em>. arXiv:2305.13516.</li>
+<li>Elmadany, A. et al. (2025). <em>Voice of a Continent: Mapping Africa's Speech Technology Frontier</em>. EMNLP 2025. https://aclanthology.org/2025.emnlp-main.559/</li>
+<li>Baevski, A. et al. (2020). <em>wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations</em>. NeurIPS.</li>
+<li>Laleye, F. A. A. et al. (2016). <em>First Automatic Fongbe Continuous Speech Recognition System</em>. FedCSIS 2016. DOI 10.15439/2016F153.</li>
+<li>Gauthier, E. et al. (2016). <em>Collecting Resources in Sub-Saharan African Languages for Automatic Speech Recognition: a Case Study of Wolof</em>. LREC. https://aclanthology.org/L16-1611/</li>
+<li>International Phonetic Association. <em>IPA Chart</em> (révision 2020). https://www.internationalphoneticassociation.org/content/ipa-chart</li>
+<li>Note de référence du cours : <a href="../../../ressources/orthographes_fon_wol/">Orthographes du fongbe et du wolof : note de référence pour le traitement automatique</a>.</li>
+</ul>
+<details>
+<summary>Réponses de l'auto-évaluation</summary>
+
+1. Exemples : ASR pour le sous-titrage de radios ; TTS pour des alertes vocales ; LID pour router un appel ; diarisation pour séparer les intervenants ; KWS pour détecter des mots-clés.
+2. Le fongbe n'est pas dans ses langues d'entraînement. Il choisit la langue connue la plus proche acoustiquement (le yoruba, langue tonale voisine), puis génère un texte plausible dans cette langue, ou boucle : c'est une hallucination.
+3. Peu de parole transcrite ; peu de textes numériques ; orthographe peu pratiquée ; peu d'outils ; absence dans les grands modèles.
+4. La F0 (fréquence fondamentale) porte les tons ; les formants (F1, F2) portent les voyelles.
+5. Ils utilisent des points de code différents : ε grec U+03B5 et ɛ latin U+025B. Un programme compare des numéros, pas des formes visuelles.
+
+</details>
+
+<h2 id="annexe--correspondance-objectifs--contenus">Annexe — correspondance objectifs ↔ contenus<a class="headerlink" href="#annexe--correspondance-objectifs--contenus" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Objectif</th>
+<th>Sections</th>
+<th>Activités</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O1 Chaîne de la parole, état de l'art</td>
+<td>1, 2, 3</td>
+<td>Atelier 1A, quiz Q1–Q2</td>
+</tr>
+<tr>
+<td>O2 Langues peu dotées, fongbe et wolof</td>
+<td>4, 5, 6</td>
+<td>TD1 partie A</td>
+</tr>
+<tr>
+<td>O3 Inférence ASR et TTS</td>
+<td>3, 13</td>
+<td>Atelier 1A</td>
+</tr>
+<tr>
+<td>O4 API, tons, nasalité, harmonie, longueur</td>
+<td>9, 10, 11</td>
+<td>TD1 partie B, atelier 1B (parties 2–4)</td>
+</tr>
+<tr>
+<td>O5 F0 et normalisation Unicode</td>
+<td>8, 10, 12</td>
+<td>Atelier 1B (parties 1, 2, 5)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="points-à-faire-valider">Points à faire valider<a class="headerlink" href="#points-à-faire-valider" title="Permanent link">¶</a></h2>
+<ul>
+<li>Nombres de locuteurs du fongbe et du wolof ; nombre de langues africaines ; proportion de langues tonales (sources à citer).</li>
+<li>Volumes horaires des corpus ALFFA fongbe et wolof.</li>
+<li>Exemples phonétiques et lexicaux des sections 9 à 11 <code>[RELECTURE LINGUISTIQUE]</code>.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Session 1 — Panorama &amp;amp; phonétique">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Session 1 — Panorama &amp; phonétique
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../notebooks/S1_NB01_premier_contact/" class="md-footer__link md-footer__link--next" aria-label="Suivant: S1-NB01 — Premier contact : la machine écoute le fongbe et le wolof">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                S1-NB01 — Premier contact : la machine écoute le fongbe et le wolof
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      IA Training — Module 1 · Contenus pédagogiques ; données et modèles tiers sous leurs licences respectives (voir « Données & licences »).
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.path", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../assets/mathjax-config.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

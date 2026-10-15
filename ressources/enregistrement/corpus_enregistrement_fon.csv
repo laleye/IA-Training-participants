@@ -1,0 +1,41 @@
+id,categorie,obligatoire,texte,traduction_fr,api,notes
+fon_01,paire_tonale,oui,tó,oreille (candidat),/tó/,paire P1 — ton haut vs bas — prononcer dans la phrase porteuse « Un ɖɔ tó » [RELECTURE LINGUISTIQUE]
+fon_02,paire_tonale,oui,tò,"fleuve, lagune (candidat)",/tò/,paire P1 — ton haut vs bas — prononcer dans la phrase porteuse « Un ɖɔ tò » [RELECTURE LINGUISTIQUE]
+fon_03,paire_tonale,oui,nù,bouche (candidat),/nù/,paire P2 — ton bas vs montant — prononcer dans la phrase porteuse « Un ɖɔ nù » [RELECTURE LINGUISTIQUE]
+fon_04,paire_tonale,oui,nǔ,chose (candidat),/nǔ/,paire P2 — ton bas vs montant — prononcer dans la phrase porteuse « Un ɖɔ nǔ » [RELECTURE LINGUISTIQUE]
+fon_05,paire_tonale,oui,xɔ́,"(candidat, sens à valider)",/xɔ́/,paire P3 — ton haut vs bas — prononcer dans la phrase porteuse « Un ɖɔ xɔ́ » [RELECTURE LINGUISTIQUE]
+fon_06,paire_tonale,oui,xɔ̀,acheter (candidat),/xɔ̀/,paire P3 — ton haut vs bas — prononcer dans la phrase porteuse « Un ɖɔ xɔ̀ » [RELECTURE LINGUISTIQUE]
+fon_07,paire_tonale,oui,sɔ́,"prendre, soulever (candidat)",/sɔ́/,paire P4 — ton haut vs bas — prononcer dans la phrase porteuse « Un ɖɔ sɔ́ » [RELECTURE LINGUISTIQUE]
+fon_08,paire_tonale,oui,sɔ̀,"(candidat, sens à valider)",/sɔ̀/,paire P4 — ton haut vs bas — prononcer dans la phrase porteuse « Un ɖɔ sɔ̀ » [RELECTURE LINGUISTIQUE]
+fon_09,paire_tonale,oui,kɔ́,"(candidat, sens à valider)",/kɔ́/,paire P5 — ton haut vs bas — prononcer dans la phrase porteuse « Un ɖɔ kɔ́ » [RELECTURE LINGUISTIQUE]
+fon_10,paire_tonale,oui,kɔ̀,cou (candidat),/kɔ̀/,paire P5 — ton haut vs bas — prononcer dans la phrase porteuse « Un ɖɔ kɔ̀ » [RELECTURE LINGUISTIQUE]
+fon_11,paire_tonale,oui,gbé,"(candidat, sens à valider)",/ɡ͡bé/,paire P6 — ton haut vs bas — prononcer dans la phrase porteuse « Un ɖɔ gbé » [RELECTURE LINGUISTIQUE]
+fon_12,paire_tonale,oui,gbè,"voix, langue",/ɡ͡bè/,paire P6 — ton haut vs bas — prononcer dans la phrase porteuse « Un ɖɔ gbè » [RELECTURE LINGUISTIQUE]
+fon_13,paire_tonale,non,àsí,"(candidat, sens à valider)",/àsí/,paire P7 — ton final haut vs bas — prononcer dans la phrase porteuse « Un ɖɔ àsí » [RELECTURE LINGUISTIQUE]
+fon_14,paire_tonale,non,àsì,épouse (candidat),/àsì/,paire P7 — ton final haut vs bas — prononcer dans la phrase porteuse « Un ɖɔ àsì » [RELECTURE LINGUISTIQUE]
+fon_15,paire_tonale,non,ɖó,"(candidat, sens à valider)",/ɖó/,paire P8 — ton haut vs bas — prononcer dans la phrase porteuse « Un ɖɔ ɖó » [RELECTURE LINGUISTIQUE]
+fon_16,paire_tonale,non,ɖò,"(candidat, sens à valider)",/ɖò/,paire P8 — ton haut vs bas — prononcer dans la phrase porteuse « Un ɖɔ ɖò » [RELECTURE LINGUISTIQUE]
+fon_17,contraste_voyelle_orale,oui,gbè,"voix, langue",/ɡ͡bè/,contraste e/ɛ ou o/ɔ [RELECTURE LINGUISTIQUE]
+fon_18,contraste_voyelle_orale,oui,gbɛ̀,"vie, monde",/ɡ͡bɛ̀/,contraste e/ɛ ou o/ɔ [RELECTURE LINGUISTIQUE]
+fon_19,contraste_voyelle_orale,non,ɖo,(candidat),/ɖo/,contraste e/ɛ ou o/ɔ [RELECTURE LINGUISTIQUE]
+fon_20,contraste_voyelle_orale,non,ɖɔ,dire (candidat),/ɖɔ/,contraste e/ɛ ou o/ɔ [RELECTURE LINGUISTIQUE]
+fon_21,contraste_consonne,oui,kpɔ́n,regarder (candidat),/k͡pɔ̃́/,labio-vélaires kp/gb ; d/ɖ [RELECTURE LINGUISTIQUE]
+fon_22,contraste_consonne,oui,gbɔ̀n,passer par (candidat),/ɡ͡bɔ̃̀/,labio-vélaires kp/gb ; d/ɖ [RELECTURE LINGUISTIQUE]
+fon_23,contraste_consonne,non,da,(candidat),/da/,labio-vélaires kp/gb ; d/ɖ [RELECTURE LINGUISTIQUE]
+fon_24,contraste_consonne,non,ɖa,(candidat),/ɖa/,labio-vélaires kp/gb ; d/ɖ [RELECTURE LINGUISTIQUE]
+fon_25,phrase,oui,e nɔ ya wu do mɛ,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+fon_26,phrase,oui,aximɛ yiyi ce na glo mi,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+fon_27,phrase,oui,e ɖa ayikun bo ɖu cɛxwlɛ tɔn,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+fon_28,phrase,oui,mɛ ɖokpo ɖokpo na hɛn gannu tɔn wa,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+fon_29,phrase,oui,a nɔ sa nu ɖo finɛ wɛ a,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+fon_30,phrase,oui,vi ɔ ma gble nɛ,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+fon_31,phrase,oui,hun ɔ ko ɖo gbe jɛ wɛ,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+fon_32,phrase,oui,e wa hun kpɔn gbe,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+fon_33,phrase,oui,a xa akwɛ ɔ a,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+fon_34,phrase,oui,e gbe nu do mi,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+fon_35,phrase,oui,agban ɔ jayi bo hannya,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+fon_36,phrase,oui,e ɖo nu fin wɛ ganagana,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+fon_37,phrase,non,agluza lɛ gidi jikpa ɔ mɛ,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+fon_38,phrase,non,jɛ hu gan nusunnu ɔ mɛ,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+fon_39,phrase_code_switching,oui,un yi hôpital ɔ mɛ sɔ,[à valider],,phrase construite avec mot français (hôpital) [RELECTURE LINGUISTIQUE]
+fon_40,phrase_code_switching,oui,a na sɔ téléphone towe,[à valider],,phrase construite avec mot français (téléphone) [RELECTURE LINGUISTIQUE]

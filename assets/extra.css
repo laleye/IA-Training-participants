@@ -1,0 +1,22 @@
+/* Charte du Module 1 — cohérente avec le thème des slides (templates/marp/theme-m1.css). */
+:root {
+  --m1-orange: #e07a1f;
+  --m1-bleu: #1f3a5f;
+}
+/* Encadrés pédagogiques : couleurs dédiées */
+.md-typeset .admonition.linguistes, .md-typeset details.linguistes { border-color: #2e8b57; }
+.md-typeset .linguistes > .admonition-title, .md-typeset .linguistes > summary { background-color: rgba(46, 139, 87, .1); }
+.md-typeset .linguistes > .admonition-title::before, .md-typeset .linguistes > summary::before {
+  background-color: #2e8b57; -webkit-mask-image: var(--md-admonition-icon--quote); mask-image: var(--md-admonition-icon--quote);
+}
+.md-typeset .admonition.developpeurs, .md-typeset details.developpeurs { border-color: #2f6db5; }
+.md-typeset .developpeurs > .admonition-title, .md-typeset .developpeurs > summary { background-color: rgba(47, 109, 181, .1); }
+.md-typeset .developpeurs > .admonition-title::before, .md-typeset .developpeurs > summary::before {
+  background-color: #2f6db5; -webkit-mask-image: var(--md-admonition-icon--example); mask-image: var(--md-admonition-icon--example);
+}
+/* Cartes de ressources sur les pages de session */
+.md-typeset .grid.cards > ul > li { border-left: 4px solid var(--m1-orange); }
+/* Tableaux larges : défilement horizontal plutôt que débordement */
+.md-typeset__table { overflow-x: auto; }
+/* Lecteurs audio des notebooks rendus */
+.jupyter-wrapper audio { max-width: 100%; }

@@ -1,0 +1,41 @@
+id,categorie,obligatoire,texte,traduction_fr,api,notes
+wol_01,paire_longueur,oui,gëm,croire,/ɡəm/,paire P1 — gémination — prononcer dans la phrase porteuse « Dama wax gëm » [RELECTURE LINGUISTIQUE]
+wol_02,paire_longueur,oui,gëmm,fermer les yeux,/ɡəmː/,paire P1 — gémination — prononcer dans la phrase porteuse « Dama wax gëmm » [RELECTURE LINGUISTIQUE]
+wol_03,paire_longueur,oui,fen,mentir,/fɛn/,paire P2 — longueur vocalique — prononcer dans la phrase porteuse « Dama wax fen » [RELECTURE LINGUISTIQUE]
+wol_04,paire_longueur,oui,feen,apparaître,/feːn/,paire P2 — longueur vocalique — prononcer dans la phrase porteuse « Dama wax feen » [RELECTURE LINGUISTIQUE]
+wol_05,paire_longueur,oui,bët,œil,/bət/,paire P3 — gémination — prononcer dans la phrase porteuse « Dama wax bët » [RELECTURE LINGUISTIQUE]
+wol_06,paire_longueur,oui,bëtt,percer,/bətː/,paire P3 — gémination — prononcer dans la phrase porteuse « Dama wax bëtt » [RELECTURE LINGUISTIQUE]
+wol_07,paire_longueur,oui,lal,"étendre, lit",/lal/,paire P4 — longueur vocalique — prononcer dans la phrase porteuse « Dama wax lal » [RELECTURE LINGUISTIQUE]
+wol_08,paire_longueur,oui,laal,toucher,/laːl/,paire P4 — longueur vocalique — prononcer dans la phrase porteuse « Dama wax laal » [RELECTURE LINGUISTIQUE]
+wol_09,paire_longueur,oui,dag,courtisan,/daɡ/,paire P5 — gémination — prononcer dans la phrase porteuse « Dama wax dag » [RELECTURE LINGUISTIQUE]
+wol_10,paire_longueur,oui,dagg,couper,/daɡː/,paire P5 — gémination — prononcer dans la phrase porteuse « Dama wax dagg » [RELECTURE LINGUISTIQUE]
+wol_11,paire_longueur,oui,set,propre,/sɛt/,paire P6 — longueur vocalique — prononcer dans la phrase porteuse « Dama wax set » [RELECTURE LINGUISTIQUE]
+wol_12,paire_longueur,oui,seet,"regarder, rendre visite",/seːt/,paire P6 — longueur vocalique — prononcer dans la phrase porteuse « Dama wax seet » [RELECTURE LINGUISTIQUE]
+wol_13,paire_longueur,non,wor,trahir,/wɔr/,paire P7 — longueur vocalique — prononcer dans la phrase porteuse « Dama wax wor » [RELECTURE LINGUISTIQUE]
+wol_14,paire_longueur,non,woor,être sûr,/woːr/,paire P7 — longueur vocalique — prononcer dans la phrase porteuse « Dama wax woor » [RELECTURE LINGUISTIQUE]
+wol_15,paire_longueur,non,bor,dette,/bɔr/,paire P8 — longueur vocalique — prononcer dans la phrase porteuse « Dama wax bor » [RELECTURE LINGUISTIQUE]
+wol_16,paire_longueur,non,boor,côté,/boːr/,paire P8 — longueur vocalique — prononcer dans la phrase porteuse « Dama wax boor » [RELECTURE LINGUISTIQUE]
+wol_17,contraste_voyelle,oui,dëkk,"habiter, ville",/dəkː/,"ë/e, é/ë (harmonie ATR) [RELECTURE LINGUISTIQUE]"
+wol_18,contraste_voyelle,oui,dekk,revivre,/dɛkː/,"ë/e, é/ë (harmonie ATR) [RELECTURE LINGUISTIQUE]"
+wol_19,contraste_voyelle,non,jéem,essayer,/ɟeːm/,"ë/e, é/ë (harmonie ATR) [RELECTURE LINGUISTIQUE]"
+wol_20,contraste_voyelle,non,jëm,aller vers,/ɟəm/,"ë/e, é/ë (harmonie ATR) [RELECTURE LINGUISTIQUE]"
+wol_21,prenasalisee,oui,mbaam,porc,/ᵐbaːm/,"consonnes prénasalisées mb, nd, ng, nj [RELECTURE LINGUISTIQUE]"
+wol_22,prenasalisee,oui,ndox,eau,/ⁿdɔx/,"consonnes prénasalisées mb, nd, ng, nj [RELECTURE LINGUISTIQUE]"
+wol_23,prenasalisee,non,nguur,"pouvoir, royauté",/ᵑɡuːr/,"consonnes prénasalisées mb, nd, ng, nj [RELECTURE LINGUISTIQUE]"
+wol_24,prenasalisee,non,njaay,Ndiaye (nom),/ᶮɟaːj/,"consonnes prénasalisées mb, nd, ng, nj [RELECTURE LINGUISTIQUE]"
+wol_25,phrase,oui,na nga def,comment vas-tu ?,,phrase usuelle [RELECTURE LINGUISTIQUE]
+wol_26,phrase,oui,maa ngi fi rekk,je vais bien (je suis là),,phrase usuelle [RELECTURE LINGUISTIQUE]
+wol_27,phrase,oui,lan mooy sa tur,quel est ton nom ?,,phrase usuelle [RELECTURE LINGUISTIQUE]
+wol_28,phrase,oui,fan nga dëkk,où habites-tu ?,,phrase usuelle [RELECTURE LINGUISTIQUE]
+wol_29,phrase,oui,jërëjëf ba beneen yoon,"merci, à la prochaine",,phrase usuelle [RELECTURE LINGUISTIQUE]
+wol_30,phrase,oui,sama dom bi dafay metti,mon enfant est malade,,phrase usuelle [RELECTURE LINGUISTIQUE]
+wol_31,phrase,oui,seetsi ma ëllëg am naa soxla ci yow,"viens me voir demain, j'ai besoin de toi",,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+wol_32,phrase,oui,dama koy wudd ay weer dal di koy jaayaat,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+wol_33,phrase,oui,bu màngo yi di tóor tóor muy ñag tool bi,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+wol_34,phrase,oui,baax ak bon loo ca mana nëbb dafa wóorul,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+wol_35,phrase,oui,ellëg ci yoor yoor na ñépp daje ci pénc mi,"demain à midi, que tout le monde se retrouve sur la place",,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+wol_36,phrase,oui,xam nga ni mënuloo yëkkëti poowu juróomi kilo,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+wol_37,phrase,non,silaama sii ci cosaanu dëkk bi la bokk,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+wol_38,phrase,non,soo koy déglu danga naan dafa daje ak kuus,[à traduire par un locuteur],,"source : corpus ALFFA (test) via SimbaBench, ε grec corrigé en ɛ"
+wol_39,phrase_code_switching,oui,dama dem hôpital ngir saytu sama wér-gu-yaram,je suis allé à l'hôpital pour un contrôle de santé,,code-switching (hôpital) [RELECTURE LINGUISTIQUE]
+wol_40,phrase_code_switching,oui,sama téléphone dafa yàqu,mon téléphone est en panne,,code-switching (téléphone) [RELECTURE LINGUISTIQUE]

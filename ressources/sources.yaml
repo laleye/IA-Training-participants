@@ -1,0 +1,51 @@
+# Sources de données du Module 1 — vérifiées le 2026-10-04 (ticket M1-G09).
+# redistribution_ok : la licence autorise la redistribution (avec attribution) d'extraits dans le kit.
+sources:
+  - name: SimbaBench
+    url: https://huggingface.co/datasets/UBC-NLP/SimbaBench_dataset
+    langs: [fon, wol, "+ 50 langues africaines"]
+    license: CC-BY-4.0
+    citation: "Elmadany et al. (2025). Voice of a Continent: Mapping Africa's Speech Technology Frontier. EMNLP 2025. https://aclanthology.org/2025.emnlp-main.559/"
+    domain: agrégateur (ASR, TTS, SLID) ; redistribue les tests ALFFA et Kallaama utilisés ici
+    hours: "fon test ALFFA : 1 000 énoncés (39,5 min) ; wol test : 500 ALFFA + 500 Kallaama (71,6 min)"
+    speakers: non fournis
+    use_in_course: [demo_s1, testset_s3, long_recording_s2]
+    redistribution_ok: true
+  - name: ALFFA_PUBLIC (fon, wol)
+    url: https://github.com/getalp/ALFFA_PUBLIC
+    langs: [fon, wol]
+    license: MIT
+    citation: "Laleye, Besacier, Ezin, Motamed (2016). First Automatic Fongbe Continuous Speech Recognition System. FedCSIS 2016, DOI 10.15439/2016F153 ; Gauthier, Besacier, Voisin, Melese, Elingui (2016). Collecting Resources in Sub-Saharan African Languages for Automatic Speech Recognition: a Case Study of Wolof. LREC 2016."
+    domain: parole lue
+    notes: "Transcriptions fon avec ε GREC (U+03B5) au lieu de ɛ latin ; tons non notés."
+    redistribution_ok: true
+  - name: Kallaama
+    url: https://github.com/gauthelo/kallaama-speech-dataset
+    langs: [wol, fuc, srr]
+    license: CC-BY-4.0
+    citation: "Gauthier, Ndiaye, Guissé (2024). Kallaama: A Transcribed Speech Dataset about Agriculture in the Three Most Widely Spoken Languages in Senegal. arXiv:2404.01991"
+    domain: parole spontanée (radio, entretiens), agriculture ; financé par Lacuna Fund
+    notes: "Conventions : %hum / %e (hésitations), * (inintelligible), mot() (tronqué) ; code-switching français."
+    redistribution_ok: true
+  - name: MInDS-14 (fr-FR)
+    url: https://huggingface.co/datasets/PolyAI/minds14
+    langs: [fra]
+    license: CC-BY-4.0
+    citation: "Gerz et al. (2021). Multilingual and Cross-Lingual Intent Detection from Spoken Data. arXiv:2104.08524."
+    domain: téléphone (8 kHz), requêtes bancaires
+    notes: "Les transcriptions sont les sorties 1-best du système d'ASR de Google, pas des transcriptions humaines (article, section Experimental Setup). Ne pas s'en servir comme référence de WER."
+    use_in_course: [demo_s1]
+    redistribution_ok: true
+  - name: FLEURS
+    url: https://huggingface.co/datasets/google/fleurs
+    langs: [wol (wo_sn), fra (fr_fr), "+ 100 langues ; pas de fon"]
+    license: CC-BY-4.0
+    citation: "Conneau et al. (2022). FLEURS: Few-shot Learning Evaluation of Universal Representations of Speech. SLT 2022."
+    domain: parole lue (phrases Wikipédia), métadonnées de genre
+    use_in_course: [S4-NB01 (streaming)]
+    redistribution_ok: true
+  - name: CMU Arctic x-vectors
+    url: https://huggingface.co/datasets/Matthijs/cmu-arctic-xvectors
+    license: "Libre (dérivé de CMU Arctic) [À VÉRIFIER]"
+    use_in_course: [empreinte de locuteur de SpeechT5 (TTS wolof)]
+    redistribution_ok: false  # téléchargé à la volée, non redistribué

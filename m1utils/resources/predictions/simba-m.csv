@@ -1,0 +1,51 @@
+id,lang,domain,hyp,latency_s
+fon_Alffa_Public_fon_test_idx103,fon,lu,nabí e nɔ sà takíndí dó,0.122
+fon_Alffa_Public_fon_test_idx1211,fon,lu,akwε gege ɖasi tɔn,0.143
+fon_Alffa_Public_fon_test_idx1430,fon,lu,kwekwe ɔ na vo,0.104
+fon_Alffa_Public_fon_test_idx1576,fon,lu,nusunnu ɔ sin wan gba kpe fi bi,0.142
+fon_Alffa_Public_fon_test_idx1603,fon,lu,mi nɔ gbekpligbe kplixa mi ɖee,0.146
+fon_Alffa_Public_fon_test_idx1674,fon,lu,e yigbe nu mi ɖɔakun ε yí to mε ó,0.145
+fon_Alffa_Public_fon_test_idx1769,fon,lu,e sa nu nu mi axɔ,0.108
+fon_Alffa_Public_fon_test_idx1813,fon,lu,anihwέ akahεn wá nú mì,0.111
+fon_Alffa_Public_fon_test_idx1818,fon,lu,alɔ júdó tówé hú dó mì,0.148
+fon_Alffa_Public_fon_test_idx1882,fon,lu,e jlε gali,0.105
+fon_Alffa_Public_fon_test_idx1929,fon,lu,e gbi gan nu sin asi ce,0.145
+fon_Alffa_Public_fon_test_idx2119,fon,lu,xo we tɔn gbakpe tomε,0.142
+fon_Alffa_Public_fon_test_idx268,fon,lu,e xu gali ɔ nu mi,0.105
+fon_Alffa_Public_fon_test_idx690,fon,lu,e gba jεmε nu xo ɔ ganji a,0.148
+fon_Alffa_Public_fon_test_idx797,fon,lu,e guda gusi do nusunnu ɔ wu,0.148
+fon_Alffa_Public_fon_test_idx835,fon,lu,e hinhεn gali kɔn nyitavo ji,0.144
+fon_Alffa_Public_fon_test_idx876,fon,lu,e ɖikɔ nu mi a,0.104
+fon_Alffa_Public_fon_test_idx902,fon,lu,nusunnu ɔ ci gbεdεε,0.109
+fon_Alffa_Public_fon_test_idx910,fon,lu,ata ɔ gbaza,0.108
+fon_Alffa_Public_fon_test_idx949,fon,lu,e nɔ gba gi ɖo mɔ mε,0.11
+wol_Alffa_Public_wo_test_idx111,wol,lu,yàlla nanu yàll musól ci jaan nama,0.17
+wol_Alffa_Public_wo_test_idx134,wol,lu,ëllëkk ku fi def lenn lu dul noon yit ni lañu lay def,0.23
+wol_Alffa_Public_wo_test_idx202,wol,lu,yéesu defar raamu ba raqasal ay taalibém seen ni tànk,0.227
+wol_Alffa_Public_wo_test_idx242,wol,lu,ngental dëkk bi xari bi rekka ko mën a wara,0.149
+wol_Alffa_Public_wo_test_idx346,wol,lu,cerajj wow ji ngay lekk dina sekk ci sa biir bi,0.155
+wol_Alffa_Public_wo_test_idx389,wol,lu,boo duggée ci bis yi dañu lay tañc ba ba ngay wàcc,0.199
+wol_Alffa_Public_wo_test_idx412,wol,lu,ak kaani lu mu tàng tàng dom ba gën ko saas,0.184
+wol_Alffa_Public_wo_test_idx45,wol,lu,xanaa yow amu loo dara kuy sebet benn pepp dugub,0.195
+wol_Alffa_Public_wo_test_idx522,wol,lu,ku demul gànnaar itam xam nga ndi guddi lañuy reer,0.155
+wol_Alffa_Public_wo_test_idx544,wol,lu,jigéen ji nak yu maane rekk la bañ,0.157
+wol_Alffa_Public_wo_test_idx559,wol,lu,su mbaxana doon naan yóor gendu ko sol,0.159
+wol_Alffa_Public_wo_test_idx567,wol,lu,njos njokket sa yoxomaam kollet njos njokket,0.157
+wol_Alffa_Public_wo_test_idx617,wol,lu,pom bi neexula jaar dafa am liggéey yuñu ci def,0.139
+wol_Alffa_Public_wo_test_idx642,wol,lu,dima diggée nee ci sama yaram bi lumel ni ay paañ,0.171
+wol_Alffa_Public_wo_test_idx661,wol,lu,dafa àbb sama si mis daldi ko def ak moo mel,0.128
+wol_Alffa_Public_wo_test_idx686,wol,lu,dafa gore moo tax ma nangoo liggée ak moom,0.133
+wol_Alffa_Public_wo_test_idx708,wol,lu,ey waay may leen biram njéemé ci yàpp wiwaay,0.171
+wol_Alffa_Public_wo_test_idx72,wol,lu,la ngéen taay yu topp leen ko la ngeen sawar bàyyi leen ko,0.194
+wol_Alffa_Public_wo_test_idx810,wol,lu,ku xamal suur naa dangay teey ca loxo ba,0.148
+wol_Alffa_Public_wo_test_idx812,wol,lu,mbotta gën a bëg ndox wante mu tàng bokk ca,0.149
+wol_Kallaama_wol_test_idx11432,wol,spontané,nu u de a moom la moom la culture bii gë,0.185
+wol_Kallaama_wol_test_idx15729,wol,spontané,jiiw bi yépp moo xooy centralisée taaw bi ki ci nekki ñëp dëkk bu ñuy xëy sawaay xale yéppay xëy jigéen ñi rekkey des ci tool wi tog ndekki indi,0.311
+wol_Kallaama_wol_test_idx29459,wol,spontané,settane ran yi ni a,0.146
+wol_Kallaama_wol_test_idx31978,wol,spontané,ñu doon yaakaar mu am taw me solon ni samb waxe ni due waxe di mun na am daana kan na wet bi ku ngay mu ngay tg,0.284
+wol_Kallaama_wol_test_idx3230,wol,spontané,ñun ñoo ngi joxe ay information ay xibaru météwo yoo xamante ne,0.149
+wol_Kallaama_wol_test_idx34346,wol,spontané,photocenthèse bi poy m mu mëna devole po ukwa,0.152
+wol_Kallaama_wol_test_idx39101,wol,spontané,a l léegi batey si bire jëfu doomu aadama,0.27
+wol_Kallaama_wol_test_idx39271,wol,spontané,taw ba areete mu tog lu yàgg dootul taw,0.199
+wol_Kallaama_wol_test_idx41644,wol,spontané,béyqat bu nekk tey jii ne war na apropriewo,0.156
+wol_Kallaama_wol_test_idx5967,wol,spontané,mooy kam li ma njëkkoona wax rek bayy kat bu nekk war nga bala nga comence production,0.199

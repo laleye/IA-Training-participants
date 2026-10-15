@@ -1,0 +1,51 @@
+id,lang,domain,hyp,latency_s
+fon_Alffa_Public_fon_test_idx103,fon,lu,nanby e è nɔ sa takín diɖó,0.143
+fon_Alffa_Public_fon_test_idx1211,fon,lu,akwɛ́ gěgéda así tɔn,0.141
+fon_Alffa_Public_fon_test_idx1430,fon,lu,kwékwe ɔ́ ná vo,0.104
+fon_Alffa_Public_fon_test_idx1576,fon,lu,nǔsúnnu ɔ́n sín wan gba kpé fí bǐ,0.14
+fon_Alffa_Public_fon_test_idx1603,fon,lu,mi nɔ gbe kplígbi kplí xá mi ɖee,0.144
+fon_Alffa_Public_fon_test_idx1674,fon,lu,é yí gbe nú mi ɖɔ akún nɔ yi tomɛ ó,0.145
+fon_Alffa_Public_fon_test_idx1769,fon,lu,é sa nǔ nú mì axɔ́,0.11
+fon_Alffa_Public_fon_test_idx1813,fon,lu,a niwɛ akahɛn wá nú ni,0.11
+fon_Alffa_Public_fon_test_idx1818,fon,lu,alɔɖudó towe hú do nǐ,0.146
+fon_Alffa_Public_fon_test_idx1882,fon,lu,é jlɛ́ gali,0.105
+fon_Alffa_Public_fon_test_idx1929,fon,lu,é gbi gannú sín así ce,0.145
+fon_Alffa_Public_fon_test_idx2119,fon,lu,xó i tɔn gba kpé tonɛ,0.143
+fon_Alffa_Public_fon_test_idx268,fon,lu,é xú gali ɔ́ nú mì,0.105
+fon_Alffa_Public_fon_test_idx690,fon,lu,é gba jɛmɛnú xó ɔ́ gan jí ǎ,0.147
+fon_Alffa_Public_fon_test_idx797,fon,lu,é gúdó gǔsí ɖó nǔ súnnu ɔ́ wú,0.149
+fon_Alffa_Public_fon_test_idx835,fon,lu,xé hín hɛn galikɔn i tavo jí,0.146
+fon_Alffa_Public_fon_test_idx876,fon,lu,é di kɔnú mì ǎ,0.105
+fon_Alffa_Public_fon_test_idx902,fon,lu,nǔsúnnú ɔ́ cí gbɛdɛ ɛ,0.111
+fon_Alffa_Public_fon_test_idx910,fon,lu,atá ɔ́ gba azǎ,0.108
+fon_Alffa_Public_fon_test_idx949,fon,lu,é nɔ gba gǐɖo mɔ mɛ,0.108
+wol_Alffa_Public_wo_test_idx111,wol,lu,yàlla nanu yàll musol ci jannama,0.163
+wol_Alffa_Public_wo_test_idx134,wol,lu,ëlëkk ku fi def lenn ludul nooniit ni lañu lay def,0.226
+wol_Alffa_Public_wo_test_idx202,wol,lu,yéesu defar raamu ba raxasal ay tallibem seeni tank,0.228
+wol_Alffa_Public_wo_test_idx242,wol,lu,ngental dëkk bi xare bi rekk ko mëna wara,0.148
+wol_Alffa_Public_wo_test_idx346,wol,lu,cëra ju wow ji ngay lekk dina sekk ci sa biir bi,0.154
+wol_Alffa_Public_wo_test_idx389,wol,lu,bo duggée ci bis i dañu lay tanc ba ba ngay wàcc,0.199
+wol_Alffa_Public_wo_test_idx412,wol,lu,ak kaani lumu tàng-tàng dom ba gën ko saas,0.184
+wol_Alffa_Public_wo_test_idx45,wol,lu,xana yow amloo dara kuy sabet benn pépp dugub,0.193
+wol_Alffa_Public_wo_test_idx522,wol,lu,ku demul gànnaar itam xam ngani guddilañuy reer,0.155
+wol_Alffa_Public_wo_test_idx544,wol,lu,jigéen ji nak yu maane reg la bañ,0.158
+wol_Alffa_Public_wo_test_idx559,wol,lu,su mbaxana doonnaan yóor kentu ko sol,0.159
+wol_Alffa_Public_wo_test_idx567,wol,lu,njos njoket sayo xomam kollet njos njoket,0.16
+wol_Alffa_Public_wo_test_idx617,wol,lu,pom bi neexula jaar dafa am liggéey yuñu ci def,0.158
+wol_Alffa_Public_wo_test_idx642,wol,lu,dima diggéenée ci sama yaram wi lu melni ay paañ,0.177
+wol_Alffa_Public_wo_test_idx661,wol,lu,dafa abb sama simis dal di ko def ak moomel,0.13
+wol_Alffa_Public_wo_test_idx686,wol,lu,dafa gore moo tax ma nangoo liggeey ak moom,0.134
+wol_Alffa_Public_wo_test_idx708,wol,lu,aywaay may leen biram njéeme ci yapp wi waay,0.173
+wol_Alffa_Public_wo_test_idx72,wol,lu,la ngeen taay yi topp leen ko langeen sawar bayyi leen ko,0.175
+wol_Alffa_Public_wo_test_idx810,wol,lu,ku xamal suurna dangay teey ca loxaba,0.144
+wol_Alffa_Public_wo_test_idx812,wol,lu,mbota gëna bëgg ndox wante mu tàng bokk ca,0.147
+wol_Kallaama_wol_test_idx11432,wol,spontané,moom la cultur bi di gena ge gana asoga,0.186
+wol_Kallaama_wol_test_idx15729,wol,spontané,jiiw bi yépp moxoy centralisée taaw bi ki ci nekki ñep dëkk buñuy xëy sawaay xale yéppay xëy jigéen yi rekkey des ci tol wi tog ndekki indi,0.312
+wol_Kallaama_wol_test_idx29459,wol,spontané,sétané ran yi niae,0.145
+wol_Kallaama_wol_test_idx31978,wol,spontané,ñu doon yaakaar mu am taw me soloon ni samb waxe niduwane waxe di mun na am daana kannawet bi bu ngay tàggu,0.281
+wol_Kallaama_wol_test_idx3230,wol,spontané,ñin ño ngi joxe ay informatiyon ay xibaaru méteoyoo xamantene,0.149
+wol_Kallaama_wol_test_idx34346,wol,spontané,fotosintès bi pu mumëna defolepe ukoa,0.151
+wol_Kallaama_wol_test_idx39101,wol,spontané,leegi ba tey ci birr jëfu doomu aadama,0.268
+wol_Kallaama_wol_test_idx39271,wol,spontané,taw ba arete mu toglu yagg dootul taw,0.195
+wol_Kallaama_wol_test_idx41644,wol,spontané,baykat bu nekk tejini warna apropréo,0.155
+wol_Kallaama_wol_test_idx5967,wol,spontané,mooy kamliba njëkkon na wax rekk bayykat bu nekk war nga balanga komac produsiyon,0.198

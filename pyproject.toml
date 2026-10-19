@@ -1,0 +1,43 @@
+[project]
+name = "m1utils"
+version = "0.1.0"
+description = "Boîte à outils des notebooks du Module 1 — IA vocale & langues locales (Fongbe, Wolof)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.0",
+  "matplotlib>=3.8",
+  "soundfile>=0.12",
+  "librosa>=0.10,<0.12",
+  "soxr>=0.3",
+  "scipy>=1.11",
+  "ipython",
+  "ipywidgets>=8",
+  "tqdm",
+  "tabulate",
+]
+
+[project.optional-dependencies]
+audio = ["praat-parselmouth>=0.4.3", "noisereduce>=3.0", "pyloudnorm>=0.1.1", "silero-vad>=5.1"]
+# transformers 5.x : API utilisée (dtype=, load_adapter, pipelines ASR) testée avec 5.18
+asr = ["torch>=2.4", "transformers>=5.0,<6", "accelerate>=1.0", "sentencepiece", "jiwer>=3.0", "pygtrie>=2.1"]
+# datasets 5.x : on n'utilise PAS le décodage audio intégré (torchcodec) → Audio(decode=False) + soundfile
+hf = ["datasets>=4.0,<6", "huggingface_hub>=0.30", "evaluate>=0.4", "gradio>=5.0,<7"]
+all = ["m1utils[audio,asr,hf]"]
+# Décodage CTC en faisceau (défis 🔴) : pyctcdecode déclare numpy<2 mais fonctionne avec numpy 2.x ;
+# l'installer avec `pip install --no-deps pyctcdecode` pour ne pas rétrograder numpy (Colab).
+dev = ["pytest", "jupytext", "nbformat", "nbclient", "ipykernel", "pyyaml"]
+# Sites MkDocs (versions exactes de la CI : site/requirements.txt)
+docs = ["mkdocs>=1.6,<2", "mkdocs-material>=9.7,<10", "mkdocs-jupyter>=0.26,<0.27", "pyyaml"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["m1utils"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,51 @@
+id,lang,domain,hyp,latency_s
+fon_Alffa_Public_fon_test_idx103,fon,lu,nabieno satakindido,0.016
+fon_Alffa_Public_fon_test_idx1211,fon,lu,agugéda sitan,0.017
+fon_Alffa_Public_fon_test_idx1430,fon,lu,koukou younavou,0.022
+fon_Alffa_Public_fon_test_idx1576,fon,lu,frounon cyo ba  fibe,0.019
+fon_Alffa_Public_fon_test_idx1603,fon,lu,mino bclib cl hamin d,0.02
+fon_Alffa_Public_fon_test_idx1674,fon,lu,euiqu benomia cuntomio,0.021
+fon_Alffa_Public_fon_test_idx1769,fon,lu,issanu mouy akho,0.024
+fon_Alffa_Public_fon_test_idx1813,fon,lu,anivou yakarkhane,0.023
+fon_Alffa_Public_fon_test_idx1818,fon,lu,aloog judoto houdoun,0.019
+fon_Alffa_Public_fon_test_idx1882,fon,lu,edjil galy,0.021
+fon_Alffa_Public_fon_test_idx1929,fon,lu,edby danou siria sitie,0.019
+fon_Alffa_Public_fon_test_idx2119,fon,lu,poiton bapeut tournée,0.02
+fon_Alffa_Public_fon_test_idx268,fon,lu,ekhou gal yanou my,0.023
+fon_Alffa_Public_fon_test_idx690,fon,lu,ekhbadiémanoro gandia,0.02
+fon_Alffa_Public_fon_test_idx797,fon,lu,egou dakou cidonou sono,0.021
+fon_Alffa_Public_fon_test_idx835,fon,lu,eri galikoyn tavodi,0.021
+fon_Alffa_Public_fon_test_idx876,fon,lu,edi conominan,0.023
+fon_Alffa_Public_fon_test_idx902,fon,lu,sono te bad,0.023
+fon_Alffa_Public_fon_test_idx910,fon,lu,a ta baza,0.022
+fon_Alffa_Public_fon_test_idx949,fon,lu,enon bagido momé,0.021
+wol_Alffa_Public_wo_test_idx111,wol,lu,yàlla na ñu yàlla musal ci jaanama,0.019
+wol_Alffa_Public_wo_test_idx134,wol,lu,ellëg ku fi def lenn ludul noonu it nii lañu lay def,0.031
+wol_Alffa_Public_wo_test_idx202,wol,lu,yéesu dafa raamu ba raxasal ay taalibeem seeni tànk,0.032
+wol_Alffa_Public_wo_test_idx242,wol,lu,ngental dëkk bi xare bi rekk a ko mëna waral,0.021
+wol_Alffa_Public_wo_test_idx346,wol,lu,cere ju wow ji ngay lekk dina sekki ci sa biir bi,0.022
+wol_Alffa_Public_wo_test_idx389,wol,lu,boo duggee ci bis yi dañu lay tanc ba ba ngay wàcc,0.027
+wol_Alffa_Public_wo_test_idx412,wol,lu,ag kaani lu mu tàng tàng doom ba gën koo saas,0.025
+wol_Alffa_Public_wo_test_idx45,wol,lu,xanaa yow amuloo dara kuy sebet benn peppu dugub,0.027
+wol_Alffa_Public_wo_test_idx522,wol,lu,ku demul gànnaar itam xam nga ne guddi lañuy reer,0.023
+wol_Alffa_Public_wo_test_idx544,wol,lu,jigéen ji nag yumaane rekk la bañ,0.022
+wol_Alffa_Public_wo_test_idx559,wol,lu,su mbaxa na doon naan yóor kenn du ko sol,0.022
+wol_Alffa_Public_wo_test_idx567,wol,lu,njoos njokket sa yaxu maam kollet njoos njokket,0.023
+wol_Alffa_Public_wo_test_idx617,wol,lu,pom bi neexul a jaar dafa am liggéey yu ñu ciy def,0.022
+wol_Alffa_Public_wo_test_idx642,wol,lu,di ma di génne ci sama yaram wi lu mel ni ay paañ,0.026
+wol_Alffa_Public_wo_test_idx661,wol,lu,dafa àbb sama simis dal di ko def ag moomeel,0.021
+wol_Alffa_Public_wo_test_idx686,wol,lu,dafa gore moo tax ma nangoo liggéey ak moom,0.022
+wol_Alffa_Public_wo_test_idx708,wol,lu,ey waay mayleen biram njéemé ci yàpp wi waay,0.026
+wol_Alffa_Public_wo_test_idx72,wol,lu,la ngeen tàyyi topp leen ko la ngeen sawar bàyyi leen ko,0.027
+wol_Alffa_Public_wo_test_idx810,wol,lu,ku xamul suur naa dangay téye ca loxo ba,0.021
+wol_Alffa_Public_wo_test_idx812,wol,lu,mbott a gën a bëgg ndox wante mu tàng bokk ca,0.022
+wol_Kallaama_wol_test_idx11432,wol,spontané,m nu mu tudd sax moom la moom la culture bi,0.025
+wol_Kallaama_wol_test_idx15729,wol,spontané,jiw bi yëpp moo koy centralise taaw bi ci ci nekk ñëpp dëkk bu ñuy xëy sa waay xale yëpp ay xëy jigéen ñi rek ay des ci tool bi togg ndekki indi,0.046
+wol_Kallaama_wol_test_idx29459,wol,spontané,da a se ta ne ba a na a,0.023
+wol_Kallaama_wol_test_idx31978,wol,spontané,ñu ngi doon yaakaar mu am taw mais selon ni samb waxee ni doen waxee nii mun na am daanaka nawet bi mu ngi mu ngiy tàggu,0.043
+wol_Kallaama_wol_test_idx3230,wol,spontané,ñun ñoo ngi joxe ay informations ay xibaaru météo yoo xamante ne,0.024
+wol_Kallaama_wol_test_idx34346,wol,spontané,pa pa c cain tize bi pour mu mu mun a développé ou oi,0.023
+wol_Kallaama_wol_test_idx39101,wol,spontané,waaw l léegi ba tey si biir jëfu doomu adama,0.039
+wol_Kallaama_wol_test_idx39271,wol,spontané,taw ba arrêté mu toog lu yàgg dootul taw,0.029
+wol_Kallaama_wol_test_idx41644,wol,spontané,béykat bu nekk tey jii nii war na approprié wu,0.023
+wol_Kallaama_wol_test_idx5967,wol,spontané,mooy comme li ma njëkkoon a wax rek baykat bu nekk war nga balaa ngaa commencése production,0.029

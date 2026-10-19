@@ -1,0 +1,3847 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Fondamentaux de l'IA vocale et des langues locales (fongbe, wolof) — cours pratique">
+      
+      
+        <meta name="author" content="Équipe pédagogique IA Training">
+      
+      
+        <link rel="canonical" href="https://laleye.github.io/IA-Training-participants/session2/cours/S2_cours/">
+      
+      
+        <link rel="prev" href="../../">
+      
+      
+        <link rel="next" href="../../notebooks/S2_NB01_signal_spectrogramme/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Traitement du signal audio - IA Training — Module 1 : IA vocale & langues locales</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#traitement-du-signal-audio" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="IA Training — Module 1 : IA vocale &amp; langues locales" class="md-header__button md-logo" aria-label="IA Training — Module 1 : IA vocale & langues locales" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m22 12-2 1-1 1-1-1-1 3-1-3-1 8-1-8-1 2-1-2-1 4-1-4-1 9-1-9-1 6-1-6-1 1-1-1-2-1 2-1 1-1 1 1 1-6 1 6 1-9 1 9 1-4 1 4 1-2 1 2 1-8 1 8 1-3 1 3 1-1 1 1z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IA Training — Module 1 : IA vocale & langues locales
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Traitement du signal audio
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Passer en mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer en mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Passer en mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer en mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/laleye/IA-Training-participants" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../demarrer/S0_verification_environnement/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Démarrer
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../session1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Session 1
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Session 2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ressources/bibliographie/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Ressources
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IA Training — Module 1 : IA vocale &amp; langues locales" class="md-nav__button md-logo" aria-label="IA Training — Module 1 : IA vocale & langues locales" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m22 12-2 1-1 1-1-1-1 3-1-3-1 8-1-8-1 2-1-2-1 4-1-4-1 9-1-9-1 6-1-6-1 1-1-1-2-1 2-1 1-1 1 1 1-6 1 6 1-9 1 9 1-4 1 4 1-2 1 2 1-8 1 8 1-3 1 3 1-1 1 1z"/></svg>
+
+    </a>
+    IA Training — Module 1 : IA vocale & langues locales
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/laleye/IA-Training-participants" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Démarrer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Démarrer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demarrer/S0_verification_environnement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S0 — Vérification de l'environnement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demarrer/guide_installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide d'installation et de dépannage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demarrer/syllabus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus — Module 1 : Fondamentaux de l'IA vocale et des langues locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../session1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session 1
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Session 1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../session1/cours/S1_cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panorama de l'IA vocale & phonétique des langues locales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ateliers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ateliers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../session1/notebooks/S1_NB01_premier_contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S1-NB01 — Premier contact : la machine écoute le fongbe et le wolof
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../session1/notebooks/S1_NB02_voir_ecrire_sons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S1-NB02 — Voir et écrire les sons : tons, durées, voyelles, Unicode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../session1/td/TD1_enonce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TD1 — Canvas de cas d'usage & transcription en API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../session1/td/canvas_cas_usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canvas de cas d'usage — IA vocale en langue locale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../session1/tp/TP1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP1
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TP1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../session1/tp/TP1/TP1_ma_voix_ma_langue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP1 — Ma voix, ma langue : contrôle et analyse de mes enregistrements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../session1/tp/TP1/grille_TP1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grille d'évaluation — TP1 — Ma voix, ma langue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mémo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mémo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../session1/memo/memo_S1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fiche mémo S1 — IA vocale, langues locales & phonétique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session 2
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Session 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Traitement du signal audio
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Traitement du signal audio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-dapprentissage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs d'apprentissage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prérequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-le-son-une-onde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Le son, une onde
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-numériser--échantillonnage-et-quantification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Numériser : échantillonnage et quantification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Numériser : échantillonnage et quantification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-échantillonnage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Échantillonnage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-quantification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Quantification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-canaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Canaux
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-formats-et-codecs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Formats et codecs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-le-domaine-fréquentiel--fourier-fft-stft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Le domaine fréquentiel : Fourier, FFT, STFT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Le domaine fréquentiel : Fourier, FFT, STFT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-lintuition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 L'intuition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-la-transformée-de-fourier-discrète-dft-et-la-fft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 La transformée de Fourier discrète (DFT) et la FFT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-la-stft-et-le-spectrogramme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 La STFT et le spectrogramme
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-lire-un-spectrogramme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Lire un spectrogramme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-les-représentations-dentrée-des-modèles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Les représentations d'entrée des modèles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Les représentations d&#39;entrée des modèles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-léchelle-mel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 L'échelle Mel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-whisper--le-log-mel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Whisper : le log-Mel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-mfcc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 MFCC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-les-features-apprises--wav2vec2-hubert-simba-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Les features apprises : wav2vec2, HuBERT, Simba-H
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-le-prétraitement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Le prétraitement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Le prétraitement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-diagnostiquer-avant-de-traiter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Diagnostiquer avant de traiter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-normaliser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Normaliser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-couper-les-silences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Couper les silences
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-détecter-la-parole-vad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Détecter la parole (VAD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-segmenter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 Segmenter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76-débruiter-ou-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 Débruiter… ou pas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#77-le-snr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7 Le SNR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-laugmentation-de-données-aperçu-du-module-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. L'augmentation de données (aperçu du Module 2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-le-pipeline-de-référence-du-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Le pipeline de référence du module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-exemple-guidé--diagnostiquer-un-enregistrement-pas-à-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Exemple guidé : diagnostiquer un enregistrement pas à pas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-questions-fréquentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Questions fréquentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#résumé" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résumé
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-évaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-évaluation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#références" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Références
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annexe--correspondance-objectifs--contenus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Annexe — correspondance objectifs ↔ contenus
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ateliers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ateliers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/S2_NB01_signal_spectrogramme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S2-NB01 — Du signal au spectrogramme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebooks/S2_NB02_pipeline_pretraitement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S2-NB02 — Construire un pipeline de prétraitement audio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../td/TD2_enonce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TD2 — Lecture de spectrogrammes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../tp/TP2/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP2
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TP2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp/TP2/TP2_analyse_nettoyage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP2 — Analyse de spectrogrammes & nettoyage de mon corpus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp/TP2/grille_TP2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grille d'évaluation — TP2 — Analyse de spectrogrammes & nettoyage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mémo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mémo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../memo/memo_S2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fiche mémo S2 — Signal audio & prétraitement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ressources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ressources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/bibliographie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bibliographie commentée & ressources du Module 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/dataset_card_template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modèle : dataset card template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/donnees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kit de données du Module 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/enregistrement/formulaire_consentement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formulaire de consentement : enregistrement de voix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/enregistrement/protocole_enregistrement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocole d'enregistrement : fil rouge « Ma langue, de la voix au texte »
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/evaluation/grille_participation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grille d'évaluation — Participation aux ateliers et au mini-projet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/evaluation/modalites_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modalités d'évaluation du Module 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/glossaire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire bilingue FR/EN du Module 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/orthographes_fon_wol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orthographes du fongbe et du wolof : note de référence pour le traitement automatique
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ressources/registre_modeles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registre des modèles du Module 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-dapprentissage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs d'apprentissage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prérequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-le-son-une-onde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Le son, une onde
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-numériser--échantillonnage-et-quantification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Numériser : échantillonnage et quantification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Numériser : échantillonnage et quantification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-échantillonnage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Échantillonnage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-quantification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Quantification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-canaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Canaux
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-formats-et-codecs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Formats et codecs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-le-domaine-fréquentiel--fourier-fft-stft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Le domaine fréquentiel : Fourier, FFT, STFT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Le domaine fréquentiel : Fourier, FFT, STFT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-lintuition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 L'intuition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-la-transformée-de-fourier-discrète-dft-et-la-fft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 La transformée de Fourier discrète (DFT) et la FFT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-la-stft-et-le-spectrogramme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 La STFT et le spectrogramme
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-lire-un-spectrogramme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Lire un spectrogramme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-les-représentations-dentrée-des-modèles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Les représentations d'entrée des modèles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Les représentations d&#39;entrée des modèles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-léchelle-mel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 L'échelle Mel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-whisper--le-log-mel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Whisper : le log-Mel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-mfcc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 MFCC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-les-features-apprises--wav2vec2-hubert-simba-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Les features apprises : wav2vec2, HuBERT, Simba-H
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-le-prétraitement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Le prétraitement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Le prétraitement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-diagnostiquer-avant-de-traiter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Diagnostiquer avant de traiter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-normaliser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Normaliser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-couper-les-silences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Couper les silences
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-détecter-la-parole-vad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Détecter la parole (VAD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-segmenter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 Segmenter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76-débruiter-ou-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 Débruiter… ou pas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#77-le-snr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7 Le SNR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-laugmentation-de-données-aperçu-du-module-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. L'augmentation de données (aperçu du Module 2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-le-pipeline-de-référence-du-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Le pipeline de référence du module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-exemple-guidé--diagnostiquer-un-enregistrement-pas-à-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Exemple guidé : diagnostiquer un enregistrement pas à pas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-questions-fréquentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Questions fréquentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#résumé" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résumé
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-évaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-évaluation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#références" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Références
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annexe--correspondance-objectifs--contenus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Annexe — correspondance objectifs ↔ contenus
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Session 2
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cours
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="traitement-du-signal-audio">Traitement du signal audio<a class="headerlink" href="#traitement-du-signal-audio" title="Permanent link">¶</a></h1>
+<blockquote>
+<p><strong>Module 1 — Session 2 : Traitement du signal audio.</strong> Ce support complète les slides S2A et S2B. Il fait le lien entre la phonétique de la session 1 (source-filtre, F0, formants) et les modèles de la session 3, dont il décrit ce qu'ils reçoivent en entrée.</p>
+</blockquote>
+<h2 id="objectifs-dapprentissage">Objectifs d'apprentissage<a class="headerlink" href="#objectifs-dapprentissage" title="Permanent link">¶</a></h2>
+<ol>
+<li><strong>Expliquer</strong> la numérisation du son : échantillonnage, Nyquist, repliement, quantification, formats, canaux.</li>
+<li><strong>Passer</strong> du domaine temporel au domaine fréquentiel (FFT, STFT, fenêtrage) et <strong>choisir</strong> des paramètres d'analyse.</li>
+<li><strong>Lire</strong> un spectrogramme : silences, voyelles et formants, fricatives, occlusives, F0 et harmoniques, défauts d'enregistrement.</li>
+<li><strong>Calculer</strong> les représentations d'entrée des modèles (log-Mel, MFCC) et <strong>expliquer</strong> pourquoi Whisper et wav2vec2 diffèrent.</li>
+<li><strong>Construire</strong> un pipeline de prétraitement réutilisable : rééchantillonnage, normalisation, VAD, segmentation, débruitage, SNR.</li>
+</ol>
+<h2 id="prérequis">Prérequis<a class="headerlink" href="#prérequis" title="Permanent link">¶</a></h2>
+<p>Session 1, en particulier le modèle source-filtre (§8). Pour les formules, il suffit de connaître les logarithmes et les sinus.</p>
+<h2 id="plan">Plan<a class="headerlink" href="#plan" title="Permanent link">¶</a></h2>
+<ol>
+<li>Le son, une onde</li>
+<li>Numériser : échantillonnage et quantification</li>
+<li>Formats et codecs</li>
+<li>Le domaine fréquentiel : Fourier, FFT, STFT</li>
+<li>Lire un spectrogramme</li>
+<li>Les représentations d'entrée des modèles</li>
+<li>Le prétraitement</li>
+<li>L'augmentation de données (aperçu)</li>
+<li>Le pipeline de référence du module</li>
+</ol>
+<hr />
+<h2 id="1-le-son-une-onde">1. Le son, une onde<a class="headerlink" href="#1-le-son-une-onde" title="Permanent link">¶</a></h2>
+<p>Un son est une <strong>variation de pression de l'air</strong> qui se propage. Un micro convertit cette pression en tension électrique, puis en nombres. On décrit une onde par :</p>
+<ul>
+<li>son <strong>amplitude</strong>, liée au volume perçu ;</li>
+<li>sa <strong>fréquence</strong> <em>f</em>, nombre de cycles par seconde en <strong>hertz (Hz)</strong>, perçue comme la hauteur ;</li>
+<li>sa <strong>période</strong> T = 1/f.</li>
+</ul>
+<p>Un <strong>son pur</strong> est une sinusoïde : <span class="arithmatex">\(x(t) = A \sin(2\pi f t)\)</span>. La parole n'est pas un son pur. C'est un <strong>son complexe</strong>, somme de nombreuses sinusoïdes. Pendant une voyelle, les cordes vocales produisent une fréquence fondamentale <strong>F0</strong> et ses <strong>harmoniques</strong> (2·F0, 3·F0…). Le conduit vocal amplifie ensuite certaines zones de fréquences, les <strong>formants</strong>. C'est exactement le modèle source-filtre de la session 1, que nous allons maintenant <strong>voir</strong> dans les données.</p>
+<p>L'oreille humaine perçoit environ de 20 Hz à 20 kHz. L'essentiel de l'information de la parole se trouve entre <strong>100 Hz et 8 kHz</strong> :</p>
+<ul>
+<li>F0 de 80 à 300 Hz ;</li>
+<li>formants principaux entre 300 et 3 500 Hz ;</li>
+<li>bruits de friction (s, f, x) jusqu'à 8 kHz et au-delà.</li>
+</ul>
+<h2 id="2-numériser--échantillonnage-et-quantification">2. Numériser : échantillonnage et quantification<a class="headerlink" href="#2-numériser--échantillonnage-et-quantification" title="Permanent link">¶</a></h2>
+<h3 id="21-échantillonnage">2.1 Échantillonnage<a class="headerlink" href="#21-échantillonnage" title="Permanent link">¶</a></h3>
+<p>Un ordinateur ne peut pas stocker une courbe continue. Il <strong>mesure</strong> la pression <em>fs</em> fois par seconde, où <em>fs</em> est la <strong>fréquence d'échantillonnage</strong> (<em>sampling rate</em>). Une seconde de son à 16 kHz donne 16 000 nombres.</p>
+<p><strong>Théorème de Nyquist-Shannon.</strong> Un signal échantillonné à <em>fs</em> ne peut représenter fidèlement que les fréquences <strong>strictement inférieures à fs/2</strong>, appelée la <strong>fréquence de Nyquist</strong>.</p>
+<div class="arithmatex">\[f_{max} &lt; \frac{f_s}{2}\]</div>
+<p><strong>Repliement spectral</strong> (<em>aliasing</em>). Une fréquence au-dessus de fs/2 ne disparaît pas : elle <strong>réapparaît, fausse</strong>, plus bas. Sa fréquence apparente est la distance au multiple de <em>fs</em> le plus proche :</p>
+<div class="arithmatex">\[f_{apparente} = |f - f_s \cdot \text{round}(f / f_s)|\]</div>
+<p><em>Exemple chiffré.</em> Une sinusoïde de 7 kHz échantillonnée à 8 kHz (Nyquist 4 kHz) apparaît à |7 000 − 8 000| = <strong>1 000 Hz</strong>. On « entend » un son qui n'existe pas.</p>
+<p><strong>La parade : le filtre anti-repliement.</strong> Avant de réduire <em>fs</em>, on filtre tout ce qui dépasse la future fréquence de Nyquist. C'est ce que font <code>librosa.resample</code> et <code>m1utils.audio.resample</code>. À l'inverse, garder un échantillon sur deux sans filtrer (<code>naive_downsample</code>) crée du repliement.</p>
+<table>
+<thead>
+<tr>
+<th>fs</th>
+<th>Nyquist</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8 kHz</td>
+<td>4 kHz</td>
+<td>téléphonie classique (réseau commuté, GSM)</td>
+</tr>
+<tr>
+<td><strong>16 kHz</strong></td>
+<td><strong>8 kHz</strong></td>
+<td><strong>ASR</strong> : wav2vec2, HuBERT, Whisper, MMS, Simba</td>
+</tr>
+<tr>
+<td>22,05 / 24 kHz</td>
+<td>11 / 12 kHz</td>
+<td>TTS (MMS-TTS : 16 kHz ; nombreux modèles à 22–24 kHz)</td>
+</tr>
+<tr>
+<td>44,1 kHz</td>
+<td>22 kHz</td>
+<td>CD, musique</td>
+</tr>
+<tr>
+<td>48 kHz</td>
+<td>24 kHz</td>
+<td>vidéo, smartphones</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pourquoi 16 kHz suffit pour l'ASR.</strong> Toute l'information phonétique utile tient sous 8 kHz. Monter à 48 kHz triplerait le calcul sans gain mesurable. Mais <strong>8 kHz est insuffisant</strong> : les fricatives perdent l'essentiel de leur énergie, comme le montre la partie 8 de S2-NB01.</p>
+<div class="admonition tip">
+<p class="admonition-title">En pratique</p>
+<p>Rééchantillonnez <strong>toujours</strong> à 16 kHz avant de passer un audio à un modèle d'ASR. Un modèle qui reçoit du 44,1 kHz en croyant recevoir du 16 kHz « entend » une voix ralentie et grave, et ses résultats s'effondrent sans message d'erreur.</p>
+</div>
+<h3 id="22-quantification">2.2 Quantification<a class="headerlink" href="#22-quantification" title="Permanent link">¶</a></h3>
+<p>Chaque mesure est arrondie à l'un des <span class="arithmatex">\(2^n\)</span> niveaux possibles, <em>n</em> étant la <strong>profondeur</strong> en bits. L'erreur d'arrondi est le <strong>bruit de quantification</strong>. Le SNR de quantification croît d'environ <strong>6 dB par bit</strong> :</p>
+<div class="arithmatex">\[SNR_q \approx 6{,}02\, n + 1{,}76 \text{ dB}\]</div>
+<p>En 16 bits, la dynamique théorique avoisine 98 dB, bien au-delà de la dynamique d'une voix enregistrée dans une pièce (40 à 60 dB). Le <strong>16 bits</strong> est donc le standard pour la parole. Les fichiers en virgule flottante 32 bits servent surtout aux calculs intermédiaires.</p>
+<p><strong>dBFS</strong> (<em>decibels relative to Full Scale</em>). Le niveau d'un signal numérique se mesure par rapport à la pleine échelle (amplitude 1,0 = 0 dBFS). Toutes les valeurs sont donc négatives :</p>
+<div class="arithmatex">\[L_{dBFS} = 20 \log_{10}(|x|)\]</div>
+<ul>
+<li>Un pic à 0,5 vaut −6 dBFS.</li>
+<li>Une voix bien enregistrée a un <strong>niveau crête</strong> de −6 à −1 dBFS et un <strong>niveau RMS</strong> de −25 à −15 dBFS.</li>
+</ul>
+<p><strong>Saturation</strong> (écrêtage, <em>clipping</em>). Si la pression dépasse la pleine échelle, les échantillons sont bloqués à ±1 et les crêtes sont « coupées ». C'est <strong>irréversible</strong> : l'information est perdue. Le son grésille et les modèles se trompent. Quand une saturation est détectée, il faut <strong>réenregistrer</strong>.</p>
+<h3 id="23-canaux">2.3 Canaux<a class="headerlink" href="#23-canaux" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Mono</strong> : 1 canal.</li>
+<li><strong>Stéréo</strong> : 2 canaux.</li>
+</ul>
+<p>Les modèles d'ASR attendent du mono : on fait la <strong>moyenne</strong> des canaux. Attention, deux micros éloignés peuvent créer des effets de phase. Dans ce cas, on préfère garder le canal le plus propre.</p>
+<h2 id="3-formats-et-codecs">3. Formats et codecs<a class="headerlink" href="#3-formats-et-codecs" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Compression</th>
+<th>Remarque</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WAV (PCM)</td>
+<td>aucune</td>
+<td>lourd, mais exact ; <strong>format de travail</strong> du module</td>
+</tr>
+<tr>
+<td>FLAC</td>
+<td><strong>sans perte</strong></td>
+<td>environ 50 % plus léger que le WAV, identique au décodage ; idéal pour archiver un corpus</td>
+</tr>
+<tr>
+<td>MP3, AAC (M4A)</td>
+<td><strong>avec perte</strong></td>
+<td>supprime ce que l'oreille perçoit peu (modèle psychoacoustique), surtout les hautes fréquences</td>
+</tr>
+<tr>
+<td>Opus</td>
+<td>avec perte, très efficace</td>
+<td><strong>notes vocales WhatsApp</strong>, visioconférence</td>
+</tr>
+<tr>
+<td>G.711, AMR</td>
+<td>avec perte, bande étroite</td>
+<td><strong>téléphonie</strong> à 8 kHz</td>
+</tr>
+</tbody>
+</table>
+<p>Un codec avec perte n'est pas « interdit », mais il modifie le signal. Un modèle entraîné sur du WAV propre et utilisé sur des notes vocales WhatsApp se dégrade, comme pour le décalage de domaine de la session 1. <strong>Collectez les données dans le format et le canal de l'usage réel</strong>, ou simulez-les (augmentation, §8).</p>
+<h2 id="4-le-domaine-fréquentiel--fourier-fft-stft">4. Le domaine fréquentiel : Fourier, FFT, STFT<a class="headerlink" href="#4-le-domaine-fréquentiel--fourier-fft-stft" title="Permanent link">¶</a></h2>
+<h3 id="41-lintuition">4.1 L'intuition<a class="headerlink" href="#41-lintuition" title="Permanent link">¶</a></h3>
+<p>Un prisme décompose la lumière blanche en couleurs. La <strong>transformée de Fourier</strong> décompose un son en <strong>fréquences</strong> : elle indique « combien » de chaque fréquence contient le signal. La forme d'onde montre <em>quand</em> il y a du son. Le <strong>spectre</strong> montre <em>de quoi</em> il est fait.</p>
+<h3 id="42-la-transformée-de-fourier-discrète-dft-et-la-fft">4.2 La transformée de Fourier discrète (DFT) et la FFT<a class="headerlink" href="#42-la-transformée-de-fourier-discrète-dft-et-la-fft" title="Permanent link">¶</a></h3>
+<p>Pour N échantillons <span class="arithmatex">\(x_0 \dots x_{N-1}\)</span> :</p>
+<div class="arithmatex">\[X_k = \sum_{n=0}^{N-1} x_n \, e^{-2i\pi kn/N}, \quad k = 0 \dots N-1\]</div>
+<p><span class="arithmatex">\(|X_k|\)</span> est l'amplitude de la fréquence <span class="arithmatex">\(f_k = k \cdot f_s / N\)</span>. La <strong>FFT</strong> (<em>Fast Fourier Transform</em>) est un algorithme rapide pour calculer la DFT, en <span class="arithmatex">\(O(N \log N)\)</span>.</p>
+<p><strong>Résolution fréquentielle</strong> : <span class="arithmatex">\(\Delta f = f_s / N\)</span>. Avec N = 400 échantillons (25 ms à 16 kHz), Δf = 40 Hz.</p>
+<h3 id="43-la-stft-et-le-spectrogramme">4.3 La STFT et le spectrogramme<a class="headerlink" href="#43-la-stft-et-le-spectrogramme" title="Permanent link">¶</a></h3>
+<p>La parole change en permanence : un spectre calculé sur 3 secondes mélangerait tout. On découpe donc le signal en <strong>trames</strong> courtes qui se chevauchent, et on calcule un spectre par trame. C'est la <strong>transformée de Fourier à court terme</strong> (<em>Short-Time Fourier Transform</em>, STFT). Ses paramètres sont :</p>
+<ul>
+<li><strong>la taille de fenêtre</strong> <code>n_fft</code> : 25 ms, soit 400 échantillons à 16 kHz, est le standard pour la parole ;</li>
+<li><strong>le pas</strong> <code>hop_length</code> : 10 ms, soit 160 échantillons. On obtient <strong>100 trames par seconde</strong> ;</li>
+<li><strong>la fonction de fenêtrage</strong> (Hann, Hamming) : elle atténue les bords de chaque trame pour éviter des artefacts dus à la coupure brutale.</li>
+</ul>
+<p>Le <strong>spectrogramme</strong> empile ces spectres : temps en abscisse, fréquence en ordonnée, énergie en couleur, généralement en <strong>dB</strong> car l'oreille perçoit logarithmiquement.</p>
+<p><strong>Le compromis temps-fréquence</strong> est un principe d'incertitude : on ne peut pas être précis à la fois en temps et en fréquence.</p>
+<table>
+<thead>
+<tr>
+<th>Fenêtre</th>
+<th>Résolution temporelle</th>
+<th>Résolution fréquentielle</th>
+<th>On voit…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Courte (5–10 ms) : <strong>bande large</strong></td>
+<td>excellente</td>
+<td>faible (100–200 Hz)</td>
+<td>les <strong>formants</strong> comme des bandes, les explosions brèves</td>
+</tr>
+<tr>
+<td>Moyenne (25 ms)</td>
+<td>bonne</td>
+<td>≈ 40 Hz</td>
+<td>le compromis standard</td>
+</tr>
+<tr>
+<td>Longue (50–100 ms) : <strong>bande étroite</strong></td>
+<td>faible</td>
+<td>fine (10–20 Hz)</td>
+<td>les <strong>harmoniques</strong> de la F0, donc les tons</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">En pratique</p>
+<p>La partie 6 de S2-NB01 vous fait régler <code>n_fft</code> et <code>hop</code> avec des curseurs. Les phonéticiens utilisent la bande étroite pour la F0 et la bande large pour les formants.</p>
+</div>
+<h2 id="5-lire-un-spectrogramme">5. Lire un spectrogramme<a class="headerlink" href="#5-lire-un-spectrogramme" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Motif visuel</th>
+<th>Son</th>
+<th>Exemples fongbe / wolof</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zone sombre, sans énergie</td>
+<td><strong>silence</strong> ou pause ; aussi la <strong>tenue</strong> d'une occlusive avant son explosion</td>
+<td>entre les mots ; avant le <em>p</em> de <em>kpɔ́n</em></td>
+</tr>
+<tr>
+<td>Bandes horizontales sombres (formants) avec des stries fines régulières (harmoniques)</td>
+<td><strong>voyelle</strong> (voisée)</td>
+<td><em>a</em>, <em>ɛ</em>, <em>ɔ</em></td>
+</tr>
+<tr>
+<td>Barre verticale fine et brève, sur toutes les fréquences</td>
+<td><strong>explosion</strong> d'une occlusive</td>
+<td><em>t</em>, <em>k</em>, <em>b</em>, <em>d</em></td>
+</tr>
+<tr>
+<td>Bruit diffus (« neige ») dans les hautes fréquences, sans harmoniques</td>
+<td><strong>fricative</strong> sourde</td>
+<td><em>s</em> (énergie &gt; 4 kHz), <em>f</em>, <em>x</em></td>
+</tr>
+<tr>
+<td>Formants faibles, énergie concentrée sous 500 Hz</td>
+<td><strong>nasale</strong></td>
+<td><em>m</em>, <em>n</em>, <em>ñ</em>, voyelles nasales du fongbe</td>
+</tr>
+<tr>
+<td>Espacement des stries qui varie dans le temps</td>
+<td>variation de <strong>F0</strong>, donc <strong>ton</strong> ou intonation</td>
+<td>ton montant <em>ǎ</em> : stries qui s'écartent</td>
+</tr>
+<tr>
+<td>Durée d'une voyelle ou d'un silence de tenue</td>
+<td><strong>longueur</strong> et <strong>gémination</strong></td>
+<td><em>feen</em> vs <em>fen</em> ; <em>bëtt</em> vs <em>bët</em></td>
+</tr>
+</tbody>
+</table>
+<p>Les <strong>défauts</strong> se repèrent aussi au spectrogramme :</p>
+<table>
+<thead>
+<tr>
+<th>Défaut</th>
+<th>Signature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Saturation</td>
+<td>stries verticales parasites sur toute la hauteur pendant les sons forts ; crêtes plates sur la forme d'onde</td>
+</tr>
+<tr>
+<td>Bourdonnement secteur</td>
+<td>ligne horizontale à <strong>50 Hz</strong> (et harmoniques 100, 150…)</td>
+</tr>
+<tr>
+<td>Compression MP3 à bas débit</td>
+<td>hautes fréquences coupées net au-dessus d'un seuil, « trous » dans le spectre</td>
+</tr>
+<tr>
+<td>Téléphonie</td>
+<td><strong>rien au-dessus de 4 kHz</strong></td>
+</tr>
+<tr>
+<td>Bruit de fond (ventilateur, rue)</td>
+<td>voile d'énergie permanent, y compris dans les silences</td>
+</tr>
+<tr>
+<td>Réverbération</td>
+<td>les sons « bavent » dans le temps : traînées après chaque syllabe</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">En pratique</p>
+<p>Le TD2 vous fait interpréter 6 spectrogrammes. Le TP2 vous demande d'analyser les vôtres.</p>
+</div>
+<h2 id="6-les-représentations-dentrée-des-modèles">6. Les représentations d'entrée des modèles<a class="headerlink" href="#6-les-représentations-dentrée-des-modèles" title="Permanent link">¶</a></h2>
+<h3 id="61-léchelle-mel">6.1 L'échelle Mel<a class="headerlink" href="#61-léchelle-mel" title="Permanent link">¶</a></h3>
+<p>Notre perception des hauteurs est <strong>logarithmique</strong> : 100 → 200 Hz paraît un écart aussi grand que 1 000 → 2 000 Hz. L'échelle <strong>Mel</strong> approxime cette perception :</p>
+<div class="arithmatex">\[m = 2595 \, \log_{10}\left(1 + \frac{f}{700}\right)\]</div>
+<p>Un <strong>banc de filtres Mel</strong> regroupe les fréquences en bandes triangulaires, serrées dans les graves et larges dans les aigus. On obtient un <strong>spectrogramme Mel</strong> compact (80 ou 128 bandes au lieu de 201 fréquences), puis on passe en log : c'est le <strong>log-Mel</strong>.</p>
+<h3 id="62-whisper--le-log-mel">6.2 Whisper : le log-Mel<a class="headerlink" href="#62-whisper--le-log-mel" title="Permanent link">¶</a></h3>
+<p>Whisper prend en entrée un log-Mel à <strong>80 bandes</strong> (128 pour large-v3), avec des fenêtres de <strong>25 ms</strong>, un pas de <strong>10 ms</strong> et des segments de <strong>30 s</strong> remplis de silence si besoin. Une entrée fait donc 80 × 3 000. Les défauts de <code>m1utils.features.log_mel</code> reproduisent ces paramètres.</p>
+<h3 id="63-mfcc">6.3 MFCC<a class="headerlink" href="#63-mfcc" title="Permanent link">¶</a></h3>
+<p>Les <strong>coefficients cepstraux sur l'échelle Mel</strong> (<em>Mel-Frequency Cepstral Coefficients</em>) s'obtiennent en appliquant une transformée en cosinus discrète (DCT) au log-Mel, puis en gardant les 13 premiers coefficients. Ils résument l'<strong>enveloppe spectrale</strong> (les formants, c'est-à-dire le filtre) en écartant les harmoniques (la source). On y ajoute souvent les dérivées temporelles Δ et ΔΔ (39 coefficients).</p>
+<p>Les MFCC ont dominé l'ère HMM-GMM. On les utilise encore pour des modèles légers (mots-clés, systèmes embarqués) et pour des analyses phonétiques. Le bonus du TP2 vous les fait calculer from scratch.</p>
+<h3 id="64-les-features-apprises--wav2vec2-hubert-simba-h">6.4 Les features apprises : wav2vec2, HuBERT, Simba-H<a class="headerlink" href="#64-les-features-apprises--wav2vec2-hubert-simba-h" title="Permanent link">¶</a></h3>
+<p>Ces modèles prennent le <strong>signal brut</strong> (16 000 nombres par seconde). Un encodeur convolutionnel apprend sa propre représentation et produit <strong>une trame toutes les 20 ms</strong> (50 par seconde). Plus de choix manuel de features : le réseau apprend ce qui est utile, à partir de milliers d'heures d'audio (session 3).</p>
+<table>
+<thead>
+<tr>
+<th>Représentation</th>
+<th>Taille (1 s)</th>
+<th>Pas</th>
+<th>Utilisée par</th>
+<th>Contient la F0 ?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Signal brut 16 kHz</td>
+<td>16 000</td>
+<td>—</td>
+<td>wav2vec2, HuBERT, Simba-H, MMS</td>
+<td>oui</td>
+</tr>
+<tr>
+<td>STFT (n_fft = 400)</td>
+<td>201 × 101</td>
+<td>10 ms</td>
+<td>analyse</td>
+<td>oui (si fenêtre longue)</td>
+</tr>
+<tr>
+<td>log-Mel (80)</td>
+<td>80 × 101</td>
+<td>10 ms</td>
+<td><strong>Whisper</strong>, beaucoup de TTS</td>
+<td>partiellement</td>
+</tr>
+<tr>
+<td>MFCC (13 ou 39)</td>
+<td>13 × 101</td>
+<td>10 ms</td>
+<td>HMM-GMM, KWS légers</td>
+<td><strong>non</strong> (lissée)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Attention, langues à tons</p>
+<p>Les MFCC lissent les harmoniques et perdent la F0. Un système à base de MFCC sans feature de F0 explicite est donc désavantagé pour les tons du fongbe. Les modèles modernes à signal brut ou log-Mel conservent cette information, à condition d'avoir appris à s'en servir.</p>
+</div>
+<h2 id="7-le-prétraitement">7. Le prétraitement<a class="headerlink" href="#7-le-prétraitement" title="Permanent link">¶</a></h2>
+<h3 id="71-diagnostiquer-avant-de-traiter">7.1 Diagnostiquer avant de traiter<a class="headerlink" href="#71-diagnostiquer-avant-de-traiter" title="Permanent link">¶</a></h3>
+<p>On commence par mesurer :</p>
+<ul>
+<li>la fréquence d'échantillonnage et les canaux ;</li>
+<li>les niveaux crête et RMS (dBFS) ;</li>
+<li>le taux de saturation ;</li>
+<li>la <strong>composante continue</strong> (DC offset), c'est-à-dire la moyenne du signal, qui doit être proche de 0 ;</li>
+<li>le <strong>SNR</strong>.</li>
+</ul>
+<h3 id="72-normaliser">7.2 Normaliser<a class="headerlink" href="#72-normaliser" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Méthode</th>
+<th>Principe</th>
+<th>Quand l'utiliser</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Crête</strong> (<em>peak</em>)</td>
+<td>pic à −1 dBFS</td>
+<td>simple, rapide ; sensible à un seul claquement</td>
+</tr>
+<tr>
+<td><strong>RMS</strong></td>
+<td>énergie moyenne à −20 dBFS</td>
+<td>uniformiser des niveaux de parole</td>
+</tr>
+<tr>
+<td><strong>LUFS</strong> (ITU-R BS.1770)</td>
+<td>sonie perçue, pondérée en fréquence</td>
+<td>corpus hétérogènes, radio</td>
+</tr>
+</tbody>
+</table>
+<p>Les modèles comme wav2vec2 normalisent souvent eux-mêmes leur entrée (moyenne 0, variance 1). La normalisation sert surtout à l'<strong>écoute</strong>, à l'<strong>annotation</strong> et à la <strong>cohérence</strong> d'un corpus.</p>
+<h3 id="73-couper-les-silences">7.3 Couper les silences<a class="headerlink" href="#73-couper-les-silences" title="Permanent link">¶</a></h3>
+<p><code>trim_silence</code> coupe les silences de début et de fin sous un seuil relatif au maximum (<code>top_db</code>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention : gardez une marge</p>
+<p>Couper <strong>au ras</strong> de la parole peut dérouter un modèle entraîné sur des enregistrements entourés de silence. Mesure du cours, Simba-H sur le fongbe lu : WER <strong>0,27 → 0,63</strong> après une coupe à 30 dB, le modèle se mettant soudain à écrire des tons. Avec une <strong>marge de 0,2 s</strong> remise de chaque côté : <strong>0,285</strong>. MMS, lui, est insensible à la coupe, voire en profite légèrement. Règle : on coupe les longs silences <strong>et on garde une marge</strong> (<code>PreprocessConfig(pad_s=0.2)</code>), puis on <strong>mesure</strong> sur le modèle visé.</p>
+</div>
+<h3 id="74-détecter-la-parole-vad">7.4 Détecter la parole (VAD)<a class="headerlink" href="#74-détecter-la-parole-vad" title="Permanent link">¶</a></h3>
+<p>La <strong>détection d'activité vocale</strong> (<em>Voice Activity Detection</em>) existe sous deux formes :</p>
+<ul>
+<li><strong>Énergétique.</strong> Énergie par trame de 30 ms comparée à un seuil. Une version robuste ajoute un <strong>seuil adaptatif</strong> (entre le plancher de bruit et le niveau de parole), une <strong>hystérésis</strong> (seuil d'entrée supérieur au seuil de sortie), la <strong>fusion</strong> des segments proches et la <strong>suppression</strong> des segments trop courts. C'est la version de <code>m1utils.preprocess._energy_vad</code>.</li>
+<li><strong>Neuronale.</strong> <strong>Silero VAD</strong> est un petit réseau entraîné sur des milliers d'heures. Il distingue la parole de la musique et des bruits, et reste robuste au niveau sonore. C'est la référence du module.</li>
+</ul>
+<h3 id="75-segmenter">7.5 Segmenter<a class="headerlink" href="#75-segmenter" title="Permanent link">¶</a></h3>
+<p>Les longs enregistrements (radio, entretiens) se découpent en énoncés de <strong>2 à 15 s</strong> pour plusieurs raisons :</p>
+<ul>
+<li>Whisper traite au plus 30 s d'un coup ;</li>
+<li>la mémoire GPU croît avec la durée ;</li>
+<li>l'annotation se fait énoncé par énoncé.</li>
+</ul>
+<p>On segmente sur les silences détectés par le VAD, avec une marge de 100 ms, et on re-coupe les segments trop longs au point d'énergie minimale. Le réglage du <strong>silence minimal</strong> fait varier la part d'énoncés exploitables. Dans l'atelier 2B, elle passe de 60 % à plus de 80 % selon le réglage.</p>
+<h3 id="76-débruiter-ou-pas">7.6 Débruiter… ou pas<a class="headerlink" href="#76-débruiter-ou-pas" title="Permanent link">¶</a></h3>
+<p>La <strong>soustraction spectrale</strong> (<code>noisereduce</code>) estime le spectre du bruit dans les silences et le retire de chaque trame. Elle est efficace sur un bruit <strong>stationnaire</strong> (ventilateur, souffle) et beaucoup moins sur un bruit variable (voix, musique, circulation).</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Le débruitage introduit des <strong>artefacts</strong> (son « métallique », « bulles ») que les modèles n'ont jamais vus. Mesure du cours, avec Simba-H et un bruit blanc à 10 dB : le CER est multiplié par 3 à 4 par rapport à l'audio propre, et le débruitage ne récupère qu'un à deux points. <strong>Mesurez toujours</strong> l'effet d'un traitement sur la tâche finale avant de l'adopter.</p>
+</div>
+<h3 id="77-le-snr">7.7 Le SNR<a class="headerlink" href="#77-le-snr" title="Permanent link">¶</a></h3>
+<p>Le <strong>rapport signal sur bruit</strong> (<em>Signal-to-Noise Ratio</em>) compare la puissance de la parole à celle du bruit :</p>
+<div class="arithmatex">\[SNR_{dB} = 10 \log_{10}\frac{P_{parole}}{P_{bruit}}\]</div>
+<p><code>estimate_snr</code> estime le bruit sur les silences détectés par le VAD.</p>
+<table>
+<thead>
+<tr>
+<th>SNR</th>
+<th>Qualité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt; 30 dB</td>
+<td>studio</td>
+</tr>
+<tr>
+<td>20–30 dB</td>
+<td>bon enregistrement en pièce calme</td>
+</tr>
+<tr>
+<td>10–20 dB</td>
+<td>bruit audible, ASR dégradée</td>
+</tr>
+<tr>
+<td>&lt; 10 dB</td>
+<td>difficile, même pour l'oreille</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-laugmentation-de-données-aperçu-du-module-2">8. L'augmentation de données (aperçu du Module 2)<a class="headerlink" href="#8-laugmentation-de-données-aperçu-du-module-2" title="Permanent link">¶</a></h2>
+<p>Plutôt que de nettoyer l'entrée, on rend le <strong>modèle</strong> robuste en l'entraînant sur des versions altérées des données :</p>
+<ul>
+<li>changement de vitesse (×0,9 / ×1,1) ;</li>
+<li>ajout de bruit à SNR variable (<code>add_noise</code>) ;</li>
+<li>réverbération simulée ;</li>
+<li>simulation de téléphone : rééchantillonnage à 8 kHz et codec ;</li>
+<li><strong>SpecAugment</strong> : masquage aléatoire de bandes de fréquences et de plages de temps sur le spectrogramme [Park et al., 2019].</li>
+</ul>
+<h2 id="9-le-pipeline-de-référence-du-module">9. Le pipeline de référence du module<a class="headerlink" href="#9-le-pipeline-de-référence-du-module" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>fichier ─► charger (mono) ─► rééchantillonner 16 kHz ─► retirer DC ─► normaliser (crête −1 dBFS)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>       ─► couper les silences + marge de 0,2 s ─► [VAD Silero + segmentation 2–15 s] ─► [débruitage : seulement si mesuré utile]
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>       ─► WAV 16 bits + rapport qualité (durée, SNR, saturation, décision)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">m1utils.preprocess</span><span class="w"> </span><span class="kn">import</span> <span class="n">PreprocessConfig</span><span class="p">,</span> <span class="n">preprocess</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">segments</span><span class="p">,</span> <span class="n">rapport</span> <span class="o">=</span> <span class="n">preprocess</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">PreprocessConfig</span><span class="p">(</span><span class="n">vad</span><span class="o">=</span><span class="s2">"silero"</span><span class="p">,</span> <span class="n">normalization</span><span class="o">=</span><span class="s2">"peak"</span><span class="p">,</span> <span class="n">denoise</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<p>Chaque étape se justifie par un besoin du modèle : format attendu, entrée de longueur raisonnable, cohérence du corpus. Et chaque paramètre se <strong>règle par la mesure</strong>. C'est le cœur du TP2.</p>
+<hr />
+<h2 id="10-exemple-guidé--diagnostiquer-un-enregistrement-pas-à-pas">10. Exemple guidé : diagnostiquer un enregistrement pas à pas<a class="headerlink" href="#10-exemple-guidé--diagnostiquer-un-enregistrement-pas-à-pas" title="Permanent link">¶</a></h2>
+<p>Prenons un cas typique du TP1 : <em>« fon_spk07_fon_03.wav »</em>, enregistré au smartphone dans une chambre, un ventilateur au plafond. Voici la démarche qu'un ingénieur ou une ingénieure audio suivrait. Ce sont exactement les étapes de l'atelier 2B.</p>
+<p><strong>Étape 1 — La carte d'identité</strong> (<code>audio_info</code>). Le fichier est en 48 kHz, stéréo, 4,8 s, M4A. Trois constats :</p>
+<ul>
+<li>il faudra rééchantillonner à 16 kHz ;</li>
+<li>il faudra passer en mono (moyenne des canaux) ;</li>
+<li>c'est un format compressé : vérifier qu'il n'a pas coupé les aigus.</li>
+</ul>
+<p><strong>Étape 2 — Les niveaux</strong> (<code>dbfs</code>, <code>detect_clipping</code>). Crête à −0,2 dBFS, 0,8 % d'échantillons saturés. La saturation est <strong>irréversible</strong> : on note « réenregistrer », même si le reste est bon.</p>
+<p><strong>Étape 3 — Écouter et regarder.</strong> Au casque, on entend un souffle continu. Au spectrogramme (<code>plot_spectrogram</code>), un voile d'énergie occupe toute la durée, y compris les silences, avec une bande plus marquée vers 100–300 Hz : c'est la signature du ventilateur. Le SNR estimé (<code>estimate_snr</code>) vaut 12 dB.</p>
+<p><strong>Étape 4 — Décider.</strong> Faut-il débruiter ? La mesure de l'atelier 2B répond : le débruitage améliore l'écoute mais récupère très peu sur le taux d'erreur du modèle. Pour un <strong>corpus</strong>, la bonne décision est de <strong>réenregistrer</strong> ventilateur éteint. Pour un <strong>usage réel</strong> où le ventilateur fera toujours partie du décor (centre de santé, marché), il vaut mieux <strong>garder</strong> ce type d'enregistrement : il représente les conditions d'usage et rendra le modèle plus robuste au Module 2.</p>
+<p><strong>Étape 5 — Nettoyer ce qui se nettoie sans risque.</strong> Mono, 16 kHz, retrait DC, normalisation crête à −1 dBFS, coupe des silences <strong>avec une marge de 0,2 s</strong>. On garde une trace de chaque décision dans <code>rapport_qualite.csv</code>.</p>
+<p><strong>Étape 6 — Documenter.</strong> Une ligne du rapport qualité : <code>fon_spk07_fon_03, 4.6 s, 16000 Hz, SNR 12 dB, saturation 0.008, réenregistrer (saturation)</code>. Le rapport de l'ensemble du corpus dira, par exemple : « 18 fichiers sur 22 conformes ; 3 réenregistrés pour saturation ; 1 rejeté (texte ne correspondant pas à l'audio) ».</p>
+<div class="admonition tip">
+<p class="admonition-title">En pratique</p>
+<p>Ce raisonnement « mesurer, écouter, décider, documenter » est celui du TP2. La qualité d'un corpus ne vient pas d'un traitement miracle, mais d'une suite de petites décisions explicites.</p>
+</div>
+<h2 id="11-questions-fréquentes">11. Questions fréquentes<a class="headerlink" href="#11-questions-fréquentes" title="Permanent link">¶</a></h2>
+<p><strong>Pourquoi ne pas tout enregistrer directement en 16 kHz ?</strong>
+On peut le faire, mais la plupart des smartphones enregistrent nativement en 44,1 ou 48 kHz. Il vaut mieux garder l'original (archivage) et rééchantillonner proprement au moment du traitement.</p>
+<p><strong>Le MP3 est-il interdit ?</strong>
+Non, mais un MP3 à bas débit (moins de 64 kbit/s) supprime des hautes fréquences utiles aux fricatives. Pour un corpus, préférez le WAV ou le FLAC. Pour l'usage réel, collectez dans le format du canal visé.</p>
+<p><strong>Pourquoi le spectrogramme de ma voix est-il différent de celui de mon binôme ?</strong>
+La F0 (hauteur), les formants (taille du conduit vocal), le débit et le micro diffèrent. C'est pour cela qu'un corpus doit contenir <strong>beaucoup de locuteurs</strong> différents.</p>
+<p><strong>Faut-il normaliser avant de donner l'audio à un modèle ?</strong>
+Les modèles comme wav2vec2 normalisent eux-mêmes leur entrée (moyenne nulle, variance unité). La normalisation sert surtout au confort d'écoute, à la cohérence du corpus et aux outils qui utilisent des seuils, comme le VAD énergétique.</p>
+<p><strong>Le VAD Silero dépend-il de la langue ?</strong>
+Il a été entraîné sur de nombreuses langues et détecte la <strong>présence</strong> de parole, pas son contenu. Il fonctionne sur le fongbe et le wolof, ce que l'atelier 2B permet de vérifier à l'écoute.</p>
+<p><strong>Comment savoir si un traitement « aide » ?</strong>
+On fixe une tâche finale (transcrire avec un modèle donné), une métrique (CER) et un jeu de test, puis on compare avec et sans le traitement. C'est la méthode appliquée au débruitage et à la coupe des silences dans ce module.</p>
+<h2 id="résumé">Résumé<a class="headerlink" href="#résumé" title="Permanent link">¶</a></h2>
+<ul>
+<li>Numériser = échantillonner à <em>fs</em> (on représente &lt; fs/2) et quantifier sur <em>n</em> bits (≈ 6 dB par bit).</li>
+<li>Réduire <em>fs</em> sans filtre crée du <strong>repliement</strong>. L'ASR travaille à <strong>16 kHz</strong> ; la téléphonie à 8 kHz perd tout au-dessus de 4 kHz.</li>
+<li>La saturation est <strong>irréversible</strong>. Les niveaux s'expriment en dBFS.</li>
+<li>La FFT donne le spectre ; la <strong>STFT</strong> à 25 ms / 10 ms donne le <strong>spectrogramme</strong>, sous un compromis temps/fréquence.</li>
+<li>Au spectrogramme : voyelles = formants et harmoniques ; fricatives = bruit aigu ; occlusives = silence puis explosion ; F0 = espacement des harmoniques.</li>
+<li>Whisper reçoit un <strong>log-Mel</strong> (80 × 3 000 pour 30 s) ; wav2vec2, HuBERT et Simba-H reçoivent le <strong>signal brut</strong> (sortie : 50 trames/s) ; les MFCC perdent la F0.</li>
+<li>Prétraitement : diagnostiquer, rééchantillonner, normaliser, couper <strong>en gardant une marge</strong>, segmenter (VAD neuronal). Débruiter <strong>seulement si la mesure le justifie</strong>. Tout traitement se <strong>mesure</strong> sur la tâche finale : une coupe au ras de la parole a doublé le WER de Simba-H.</li>
+</ul>
+<h2 id="auto-évaluation">Auto-évaluation<a class="headerlink" href="#auto-évaluation" title="Permanent link">¶</a></h2>
+<ol>
+<li>Quelle est la plus haute fréquence représentable à 16 kHz ? Que devient un son de 10 kHz échantillonné naïvement à 16 kHz ?</li>
+<li>Combien de trames log-Mel Whisper calcule-t-il pour 30 s ? Pourquoi ?</li>
+<li>Quel réglage de STFT choisir pour bien voir les harmoniques (et donc les tons) ?</li>
+<li>Citez deux signatures de défauts d'enregistrement visibles au spectrogramme.</li>
+<li>Pourquoi le débruitage peut-il dégrader la reconnaissance vocale ?</li>
+</ol>
+<h2 id="références">Références<a class="headerlink" href="#références" title="Permanent link">¶</a></h2>
+<ul>
+<li>Jurafsky, D. &amp; Martin, J. H. <em>Speech and Language Processing</em> (3e éd., brouillon en ligne), chapitre sur la phonétique et les features acoustiques.</li>
+<li>McFee, B. et al. (2015). <em>librosa: Audio and Music Signal Analysis in Python</em>. Proc. SciPy.</li>
+<li>Jadoul, Y., Thompson, B. &amp; de Boer, B. (2018). <em>Introducing Parselmouth: A Python interface to Praat</em>. Journal of Phonetics.</li>
+<li>Silero Team. <em>Silero VAD</em>. https://github.com/snakers4/silero-vad</li>
+<li>Park, D. S. et al. (2019). <em>SpecAugment: A Simple Data Augmentation Method for Automatic Speech Recognition</em>. Interspeech.</li>
+<li>ITU-R BS.1770 : algorithmes de mesure de la sonie des programmes audio.</li>
+</ul>
+<details>
+<summary>Réponses de l'auto-évaluation</summary>
+
+1. 8 kHz, la fréquence de Nyquist. Un son de 10 kHz se replie à |10 000 − 16 000| = 6 kHz.
+2. 3 000 trames (en pratique 3 001 avec centrage) : 30 s ÷ 10 ms de pas.
+3. Une fenêtre longue (bande étroite, 50–100 ms, n_fft de 1 024 ou 2 048 à 16 kHz) : la bonne résolution fréquentielle sépare les harmoniques.
+4. Exemples : ligne à 50 Hz (secteur), plus rien au-dessus de 4 kHz (téléphone), stries verticales et crêtes plates (saturation), voile permanent (bruit de fond), traînées (réverbération).
+5. Le débruitage crée des artefacts absents des données d'entraînement du modèle et peut supprimer des indices faibles (fricatives, fins de mots). Le modèle est déstabilisé : le confort d'écoute n'est pas le critère, c'est la mesure sur la tâche qui compte.
+
+</details>
+
+<h2 id="annexe--correspondance-objectifs--contenus">Annexe — correspondance objectifs ↔ contenus<a class="headerlink" href="#annexe--correspondance-objectifs--contenus" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Objectif</th>
+<th>Sections</th>
+<th>Activités</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O1 Numérisation</td>
+<td>1, 2, 3</td>
+<td>Atelier 2A, parties 1–3 et 8</td>
+</tr>
+<tr>
+<td>O2 Domaine fréquentiel</td>
+<td>4</td>
+<td>Atelier 2A, parties 5–6</td>
+</tr>
+<tr>
+<td>O3 Lire un spectrogramme</td>
+<td>5</td>
+<td>TD2, atelier 2A partie 7, TP2</td>
+</tr>
+<tr>
+<td>O4 Log-Mel, MFCC</td>
+<td>6</td>
+<td>Atelier 2B partie 8, bonus du TP2</td>
+</tr>
+<tr>
+<td>O5 Pipeline de prétraitement</td>
+<td>7, 8, 9</td>
+<td>Atelier 2B, TP2</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Session 2 — Signal audio">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Session 2 — Signal audio
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../notebooks/S2_NB01_signal_spectrogramme/" class="md-footer__link md-footer__link--next" aria-label="Suivant: S2-NB01 — Du signal au spectrogramme">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                S2-NB01 — Du signal au spectrogramme
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      IA Training — Module 1 · Contenus pédagogiques ; données et modèles tiers sous leurs licences respectives (voir « Données & licences »).
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.path", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../assets/mathjax-config.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
